@@ -1,0 +1,145 @@
+@CHARSET "ISO-8859-1";
+
+* {
+	padding: 0;
+	margin: 0;
+	
+	/*border:solid 1px red;*/
+}
+
+body {
+	background-color:rgba(100,100,100,0.1);
+}
+
+#container {
+	background-color:rgba(100,100,100,0.4);
+	position: absolute;
+	width: 60%;
+	margin-left: 20%;
+}
+#identification{
+	overflow: hidden;
+	
+}
+#identification div{
+	margin-top:2%;
+	
+}
+#divImage{
+	float:left;
+	clear:left;
+	margin-left: 5%;
+}
+#divImage img{
+	border:double 2px black;
+}
+#idEntries{
+	margin-left: 32%;
+	
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 1em;
+}
+#idEntry1{
+	font-weight: bold;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 1.4em;
+	border-top: none;
+}
+
+#mailSpan{
+	margin-top:2%;
+	width:100%;
+	float:left;
+	clear:both;
+}
+.colorSpan{
+	color:#1297b8;
+	font-size: 1.3em;
+}
+
+.title{
+	clear:both;
+	padding: 4% 0 0.5% 1.5%;
+	margin: 2% 0% 1.5% 0%;
+	
+	border-top: 4px ridge;
+	border-bottom: 2px solid;
+	
+	background-color:#b2b38b;
+	
+	font-family: 'Audiowide', cursive;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+#idTitle{
+	border-top: none;
+}
+.entrysClass{
+	margin: 2% 0 2% 0;
+	overflow: hidden;
+}
+.dateClass, .detailClass{	
+	width:30%;
+	height:auto;
+	float:left;
+	padding-left: 2%;
+	
+	
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 1em;
+	font-weight:bold;
+	color:#000080;
+	
+}
+.entryTextClass{	
+	width:66%;
+	float:right;
+	padding-right: 2%;
+	
+	
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 1em;
+}
+
+#workEntry1{
+	clear: left;
+	
+}
+
+#skillsEntry1 table, #skillsEntry1 th, #skillsEntry1 td{
+    border-top: 1px solid black;
+    border-collapse: collapse;
+	
+}
+#skillsEntry1 th, #skillsEntry1 td {
+    padding: 5px;
+}
+
+.tableLeftBorder{
+	border-left: 1px #cc0000 solid;
+}
+
+#copyright{
+	width:100%;
+	height:2.5vh;
+	margin-top: 5vh;
+	z-index: 120;
+	color:white;
+	text-align:center;
+	font-family: 'Jura', sans-serif;
+	font-size: 1vw;
+	background-color: black;
+}
+
+#copyright span{
+	
+	font-size: 1.2vw;
+}
+#copyright a{
+	text-decoration: none;
+	color: #9EA3E5 ;
+}
+#copyright a:HOVER{
+	color: #2131FF;
+}

@@ -1,0 +1,39 @@
+@CHARSET "ISO-8859-1";
+
+.myUniTitle{
+	font-size: 2em;
+	color: #F00;
+}
+
+.myUniLocation, .mySubject{
+	
+	font-size: 2.2em;
+	color: #00F;
+}
+
+#myUniTitle{
+	font-size: 2em;
+	color: #F00;
+}
+
+#myUniLocation, #mySubject{
+	
+	font-size: 2.2em;
+	color: #00F;
+}
+
+a{
+	color:#F00;
+}
+
+a.mainWebsite:HOVER{
+	color:#00F;
+}
+
+a.mainWebsite:VISITED{
+	color:#0F0;
+}
+
+a.mainWebsite:ACTIVE{
+	color:#FF0;
+}

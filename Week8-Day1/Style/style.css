@@ -1,0 +1,23 @@
+@CHARSET "ISO-8859-1";
+
+h1{
+	color:blue;
+	font-size: 2em;
+}
+
+p{
+	font-weight: bold;
+	font-size: 1.8em;
+	color: green;
+}
+
+div{
+	height: 100px;
+	text-align: center;
+	background-color: black;
+	color:white;
+}
+
+body{
+	background-color: blue;
+}
