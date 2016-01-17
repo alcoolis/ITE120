@@ -80,6 +80,13 @@ body {
 	margin: 2% 0 2% 0;
 	overflow: hidden;
 }
+.entrysClass a{
+	text-decoration: none;
+	color: #990000;
+}
+.entrysClass a:HOVER{
+	color: #FF0000;
+}
 .dateClass, .detailClass{	
 	width:30%;
 	height:auto;
