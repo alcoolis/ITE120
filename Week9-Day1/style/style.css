@@ -1,0 +1,79 @@
+@CHARSET "ISO-8859-1";
+
+* {
+	margin: 0;
+	padding: 0;
+	
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+#redbox{
+	float : left;
+	background-color: #F00;
+	width: 100px;
+	height: 100px;
+}
+
+#greenbox{
+	float : left;
+	background-color: #0F0;
+	width: 100px;
+	height: 100px;
+}
+
+#bluebox{
+	float : left;
+	background-color: #00F;
+	width: 100px;
+	height: 100px;
+}
+
+#yellowbox{
+	float : right;
+	background-color: #ffff00;
+	width: 100px;
+	height: 100px;
+}
+
+#blackbox{
+	float : right;
+	background-color: #000;
+	width: 100px;
+	height: 100px;
+}
+
+#movbox{
+	float : right;
+	background-color: #aa2bd5;
+	width: 100px;
+	height: 100px;
+}
+
+#mainbox{
+	overflow: hidden;
+	width: 500px;
+	background-color: #000;
+	padding-top: 5px;
+	padding-left: 5px;
+}
+
+.redbox{
+	float : left;
+	width: 100px;
+	height: 100px;
+	background-color: #F00;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	padding-left:5px;
+}
+
+#mybox{
+	width: 200px;
+	height: 200px;
+	background-color: #F00;
+	color:#FFF;
+	margin-left: 20px;
+	padding-left: 50px;
+}
