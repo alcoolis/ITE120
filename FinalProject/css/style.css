@@ -269,22 +269,18 @@ body {
 	
 }
 #divImage1{
-	background: url(../img/5.jpg);
 	background-repeat: no-repeat; 
 	background-size : 100% 100%;
 }
 #divImage2{
-	background: url(../img/2.jpg);
 	background-repeat: no-repeat; 
 	background-size : 100% 100%;
 }
 #divImage3{
-	background: url(../img/3.jpg);
 	background-repeat: no-repeat; 
 	background-size : 100% 100%;
 }
 #divImage4{
-	background: url(../img/4.jpg);
 	background-repeat: no-repeat; 
 	background-size : 100% 100%;
 }

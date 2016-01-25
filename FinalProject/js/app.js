@@ -6,9 +6,10 @@ $(function()
 {
 	init();
 	
-	$('#homeDiv').click(function()
+	$('#upperNav a').click(function()
 	{
-		ajaxCall("div/homeDiv.html", false);
+		var link=this.id;
+		ajaxCall("div/"+link+".html", false);
 	});
 	
 	$('#search_button').click(function()
