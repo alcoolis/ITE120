@@ -15,6 +15,8 @@ $(function()
 	{
 		ajaxCall("div/searchDiv.html", true);
 	});
+	
+
 });
 
 function ajaxCall(urlAjax, flag)

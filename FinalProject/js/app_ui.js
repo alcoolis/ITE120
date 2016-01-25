@@ -6,7 +6,7 @@ $(function()
 {
 	init_ui();
 	
-	var active="homeDiv";
+	var active="favorites";
 	
 	
 	//change manu background color
@@ -75,7 +75,7 @@ $(function()
 			{
 				$('html,body').animate(
 				{
-					scrollTop : target.offset().top - 60
+					scrollTop : target.offset().top - 75
 				}, 1000);
 				return false;
 			}
