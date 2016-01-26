@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 $(function()
 {
 	init_ui();
@@ -75,7 +74,7 @@ $(function()
 			{
 				$('html,body').animate(
 				{
-					scrollTop : target.offset().top - 82
+					scrollTop : target.offset().top - 75
 				}, 1000);
 				return false;
 			}

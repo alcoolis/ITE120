@@ -1,0 +1,41 @@
+@CHARSET "ISO-8859-1";
+
+.mymenu{
+	height: 38px;
+}
+
+.left_edge{
+	height: 38px;
+	width: 8px;
+	background-image: url("../img/btn_left_edge_part.jpg");
+	float:left;
+}
+
+.right_edge{
+	height: 38px;
+	width: 8px;
+	background-image: url("../img/btn_right_edge_part.jpg");
+	float:left;
+}
+
+.middle{
+	height: 38px;
+	width: 186px;
+	background-image: url("../img/btn_center_part.jpg");
+	float:left;
+}
+
+.button_text{
+	color:white;
+	text-align: center;
+	padding-top: 7px;
+	font-weight: bold;
+	font-size: 18px;
+}
+a{
+	color:#FFF;
+	text-decoration: none;
+}
+a:HOVER {
+	color: #FF0;
+}

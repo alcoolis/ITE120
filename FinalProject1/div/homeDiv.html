@@ -2,6 +2,7 @@
 <div id="homeDiv">
 
 
+	<section class="module contentParallax">
 		<div>
 			<div class="carousell">
 				<div>
@@ -172,6 +173,8 @@
 		</div>
 		<!-- END of contentFavorites -->
 
+	</section>
+
 
 
 	<section class="module parallax parallax-1">
@@ -285,24 +288,19 @@
 	<!-- END of content4 -->
 
 	<script type="text/javascript">
-		(function()
+		var parallax = document.querySelectorAll(".parallax"), speed = 0.5;
+		
+		window.onscroll = function()
 		{
-			
-			var parallax = document.querySelectorAll(".parallax"), speed = 0.5;
-			
-			window.onscroll = function()
+			[].slice.call(parallax).forEach(function(el, i)
 			{
-				var index=1;
-				[].slice.call(parallax).forEach(function(el, i)
-				{
-					var windowYOffset = window.pageYOffset, elBackgrounPos = "0 " + ((windowYOffset * speed)-((index*600)+100)) + "px";
-					
-					el.style.backgroundPosition = elBackgrounPos;
-					index++;
-				});
-			};
-			
-		})();
+				
+				var windowYOffset = window.pageYOffset, elBackgrounPos = "0 " + -(windowYOffset * speed) + "px";
+				
+				el.style.backgroundPosition = elBackgrounPos;
+				
+			});
+		};
 	</script>
 
 </div>

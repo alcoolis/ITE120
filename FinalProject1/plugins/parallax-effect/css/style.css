@@ -17,7 +17,7 @@ section.module p {
 section.module p:last-child {
   margin-bottom: 0;
 }
-section.module.content {
+section.module.contentParallax{
   padding: 40px 0;
 }
 section.module.parallax {

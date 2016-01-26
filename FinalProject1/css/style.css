@@ -164,19 +164,6 @@ body {
 #menu{
 	z-index: 200;
 }
-
-#fleche{
-	font-size: 12pt;
-	padding: 0px;
-	border: solid white 1px;
-	background: black;
-}
-#fleche a{
-	text-decoration: none;
-	display: block;
-	color: white;
-}
-
 .liMenu {
 	list-style-type: none;
 	width: 20%;
@@ -213,14 +200,26 @@ body {
 .stickyMenu{
 	width: 80%;
 	margin-left: 10%;
-	margin-top: 167.5px;
-	min-width: 480px;
+	margin-top: 174.5px;
+	min-width: 960px;
 	
 }
 
 .isStuck{
 	width: 80%;
 	margin-top: 0.5px;
+}
+#fleche{
+	font-size: 8pt;
+	padding: 0px;
+	border: solid white 1px;
+	background: black;
+	cursor: pointer; cursor: hand;
+}
+#fleche a{
+	text-decoration: none;
+	display: block;
+	color: white;
 }
 
 #container {
@@ -262,6 +261,35 @@ body {
 	height: 600px;
 	clear: both;
 }
+
+.imageDiv{
+	width: 100%;
+	height: 500px;
+	clear: both;
+	
+}
+/*
+#divImage1{
+	background: url(../img/5.jpg);
+	background-repeat: no-repeat; 
+	background-size : 100% 100%;
+}
+#divImage2{
+	background: url(../img/2.jpg);
+	background-repeat: no-repeat; 
+	background-size : 100% 100%;
+}
+#divImage3{
+	background: url(../img/3.jpg);
+	background-repeat: no-repeat; 
+	background-size : 100% 100%;
+}
+#divImage4{
+	background: url(../img/4.jpg);
+	background-repeat: no-repeat; 
+	background-size : 100% 100%;
+}
+*/
 .titles{
 	font-family: 'Orbitron', sans-serif;
 	margin-bottom: -2%;
