@@ -288,17 +288,22 @@
 		(function()
 		{
 			
-			var parallax = document.querySelectorAll(".parallax"), speed = 0.5;
+			var parallax = document.querySelectorAll(".parallax"), speed = 0.8; //parallax speed from 0 (image scroll with text) to 1 (image is fixes)d
 			
 			window.onscroll = function()
 			{
 				var index=1;
+				var correction=0;
+				
 				[].slice.call(parallax).forEach(function(el, i)
 				{
-					var windowYOffset = window.pageYOffset, elBackgrounPos = "0 " + ((windowYOffset * speed)-((index*600)+100)) + "px";
+					var windowYOffset = window.pageYOffset;
+		
+					var elBackgrounPos = "0 " + (windowYOffset - (index*1400)+correction)*speed + "px";
 					
 					el.style.backgroundPosition = elBackgrounPos;
 					index++;
+					correction=(index-1)*200;
 				});
 			};
 			
