@@ -9,13 +9,12 @@ $(function()
 	var active="favorites";
 	
 	
-	//change manu background color
+	//change menu items background color
 	$(".liMenu a").on("click", function()
 	{
 		if(this.id!==active)
 		{
 			$(this).parent().addClass('active');
-			console.log(this);
 			$('#'+active).parent().removeClass('active');
 			active=this.id;
 		}
@@ -89,10 +88,46 @@ function init_ui()
 	
 	$("#search_form").html("<input id='search_term' type='text' value='' placeholder='text...' /><input id='search_button' type='submit' value='search' />").hide();
 	
+	//categoriesScrollIn();
+}
+/*
+function categoriesScrollIn()
+{
 
-	jQuery('.category').addClass("hidden").viewportChecker(
+	categoriesScrollIn2(450, '#favorites2', '0px', '-700px');
+	categoriesScrollIn2(450, '#favorites1', '0px', '+700px');
+}
+
+function categoriesScrollIn2(scrollNumber, classText, toPxl, fromPxl)
+{
+	jQuery(window).scroll(function()
 	{
-		classToAdd : 'visible animated fadeIn',
-		offset : 100
+		if (jQuery(this).scrollTop() > scrollNumber)
+		{
+			if (jQuery(classText).hasClass('visible') == false)
+			{
+				jQuery(classText).stop().animate(
+				{
+					right : toPxl
+				}, function()
+				{
+					jQuery(classText).addClass('visible')
+				});
+			}
+		}
+		else
+		{
+			if (jQuery(classText).hasClass('visible') == true)
+			{
+				jQuery(classText).stop().animate(
+				{
+					right : fromPxl
+				}, function()
+				{
+					jQuery(classText).removeClass('visible')
+				});
+			}
+		}
 	});
 }
+*/

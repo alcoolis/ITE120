@@ -271,11 +271,8 @@ body {
     text-shadow: 2px 2px 4px #000000;
 }
 
-.imageTitle{
+.imagesContent{
 	padding-top: 10%;
-	margin-left: -30%;
-	
-	color: white;
 }
 
 .category{
@@ -288,7 +285,6 @@ body {
 	float: left;
 	text-align: left;
 	border:solid 1px #c0c0c0;
-	
 	
 	font-family: 'Orbitron', sans-serif;
 }

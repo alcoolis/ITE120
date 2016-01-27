@@ -2,6 +2,13 @@
  * 
  */
 
+
+function init()
+{
+	ajaxCall("div/homeDiv.html", false);
+	
+};
+
 $(function()
 {
 	init();
@@ -39,12 +46,6 @@ function ajaxCall(urlAjax, flag)
 	});
 	
 }
-
-function init()
-{
-	ajaxCall("div/homeDiv.html", false);
-	
-};
 
 function doSearch()
 {
