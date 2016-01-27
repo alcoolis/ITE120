@@ -287,52 +287,49 @@
 	</div>
 	<!-- END of content4 -->
 
+	<script type="text/javascript">
+		(function()
+		{
+			
+			var parallax = document.querySelectorAll(".parallax"), speed = 0.8; //parallax speed from 0 (image scroll with text) to 1 (image is fixes)d
+			
+			window.onscroll = function()
+			{
+				var index = 1;
+				var correction = 0;
+				
+				[].slice.call(parallax).forEach(function(el, i)
+				{
+					var windowYOffset = window.pageYOffset;
+					
+					var elBackgrounPos = "0 " + (windowYOffset - (index * 1400) + correction) * speed + "px";
+					
+					el.style.backgroundPosition = elBackgrounPos;
+					index++;
+					correction = (index - 1) * 200;
+				});
+			};
+			
+			$('.carousell').slick(
+			{
+				arrows : true,
+				dots : true,
+				infinite : true,
+				speed : 500,
+				slidesToScroll : 1,
+				cssEase : 'linear',
+				autoplay : true,
+				prevArrow : "<img id='leftArrow' class='a-left control-c prev slick-prev' src='img/prev.png'>",
+				nextArrow : "<img id='rightArrow' class='a-right control-c next slick-next' src='img/next.png'>"
+			});
+			
+			jQuery('.category').addClass("hidden").viewportChecker(
+			{
+				classToAdd : 'visible animated fadeIn',
+				offset : 100
+			});
+		})();
+	</script>
+
 </div>
 <!-- END of homeDiv -->
-
-
-<script type="text/javascript">
-
-	(function()
-	{
-		
-		var parallax = document.querySelectorAll(".parallax"), speed = 0.8; //parallax speed from 0 (image scroll with text) to 1 (image is fixes)d
-		
-		window.onscroll = function()
-		{
-			var index = 1;
-			var correction = 0;
-			
-			[].slice.call(parallax).forEach(function(el, i)
-			{
-				var windowYOffset = window.pageYOffset;
-				
-				var elBackgrounPos = "0 " + (windowYOffset - (index * 1400) + correction) * speed + "px";
-				
-				el.style.backgroundPosition = elBackgrounPos;
-				index++;
-				correction = (index - 1) * 200;
-			});
-		};
-		
-		$('.carousell').slick(
-		{
-			arrows : true,
-			dots : true,
-			infinite : true,
-			speed : 500,
-			slidesToScroll : 1,
-			cssEase : 'linear',
-			autoplay : true,
-			prevArrow : "<img id='leftArrow' class='a-left control-c prev slick-prev' src='img/prev.png'>",
-			nextArrow : "<img id='rightArrow' class='a-right control-c next slick-next' src='img/next.png'>"
-		});
-		
-		jQuery('.category').addClass("hidden").viewportChecker(
-		{
-			classToAdd : 'visible animated fadeIn',
-			offset : 100
-		});
-	})();
-	
-</script>
