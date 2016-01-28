@@ -15,6 +15,9 @@
     src: url('./fonts/slick.eot');
     src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
 }
+
+
+
 /* Arrows */
 .slick-prev,
 .slick-next
@@ -133,21 +136,6 @@
 	opacity: 0.8;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Dots */
 .slick-slider
 {
@@ -157,7 +145,7 @@
 .slick-dots
 {
     position: absolute;
-    bottom: 25px;
+    bottom: 525px;
 
     display: block;
 
@@ -213,7 +201,7 @@
 .slick-dots li button:before
 {
     font-family: 'slick';
-    font-size: 16px;
+    font-size: 25px;
     line-height: 20px;
 
     position: absolute;
@@ -223,7 +211,7 @@
     width: 20px;
     height: 20px;
 
-    content: "\26AB";
+	content: "\26AA";
     text-align: center;
 
     opacity: .25;
@@ -234,6 +222,7 @@
 }
 .slick-dots li.slick-active button:before
 {
+    content: "\26AB";
     opacity: .75;
     color: white;
 }

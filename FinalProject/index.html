@@ -26,13 +26,7 @@
 			<ul>
 				<li><a id="homeDiv" href="#">Home</a></li>
 				<li>|</li>
-				<li><a id="myDiv"  href="#">Login</a></li>
-				<li>|</li>
-				<li><a href="#">Shopping Cart</a></li>
-				<li>|</li>
-				<li><a href="#">Shipping</a></li>
-				<li>|</li>
-				<li><a href="#">Contact Us</a></li>
+				<li><a id="myDiv" href="#">Contact Us</a></li>
 				<li>|</li>
 				<li><a href="#">About Us</a></li>
 				<li>|</li>
@@ -53,17 +47,89 @@
 		</div>
 		<!-- END contactNav-->
 
-	<div id="menu" class="stickyMenu">
-		<div id="fleche"><a href="#navBar">&#x26FA;</a></div>
-		<ul>
-			<li class="liMenu active"><a id="favorites" href="#contentFavorites">Favorites</a></li>
-			<li class="liMenu"><a id="cont1" href="#content1">content1</a></li>
-			<li class="liMenu"><a id="cont2" href="#content2">content2</a></li>
-			<li class="liMenu"><a id="cont3" href="#content3">content3</a></li>
-			<li class="liMenu"><a id="cont4" href="#content4">content4</a></li>
-		</ul>
-	</div>
-	<!-- END of menu -->
+
+		<div id="cartDiv" class="clickable">
+			<a href="javascript:ajaxCall('div/l=cartDiv.html', false);"></a>
+
+			<div id="cartImageDiv">
+				<img id="cartImage" src="img/cart.png" />
+				<div id="cartImageItemsDiv">
+					<div id="cartImageItemsNumberDiv">2</div><!-- END of cartImageItemsNumberDiv -->
+					<div id="cartImageItemsImageDiv">
+						<img id="itemsImage" src="img/cart_item.png" />
+					</div>
+					<!-- END of cartImageItemsImageDiv -->
+				</div>
+				<!-- END of cartImageItemsDiv -->
+			</div>
+			<!-- END of cartImageDiv -->
+
+			<div id="cartText">
+				<p>PRICE: $123</p>
+			</div>
+			<!-- END of cartText -->
+			
+		</div>
+		<!-- END of cartDiv -->
+
+
+
+		<div id="logIn" class="clickable">
+			<a href="javascript:ajaxCall('div/loginDiv.html', false);"></a>
+
+			<div id="loginImageDiv">
+				<img id="loginImage" src="img/lock.png" />
+			</div>
+			<!-- END of loginImageDiv -->
+
+			<div id="loginText">
+				<p>USER: Miltos</p>
+			</div>
+			<!-- END of loginText -->
+		</div>
+		<!-- END of login-->
+
+
+
+
+		<!-- 			<div id="cartDiv">
+				<div id="cartImageDiv">
+					<div id="cartImageItemsDiv">
+						<div id="cartImageItemsNumberDiv">2</div>
+						<div id="cartImageItemsImageDiv"><img id="itemsImage" src="img/cart_item.png"/></div>
+					</div>
+					
+					<div id="cartImageImageDiv"><img id="cartImage" src="img/cart.png"/></div>
+				</div>
+				
+				<div id="cartPriceDiv"><p>$100</p></div>
+				
+			</div> -->
+			
+			
+
+		<div id="menu" class="stickyMenu">
+			
+			<div id="centerPartOfMenu">
+				<div id="fleche">
+					<a href="#navBar">&#x26FA;</a>
+				</div>
+				<!-- END of fleche -->
+				
+				<ul>
+					<li class="liMenu active"><a id="favorites" href="#contentFavorites">Favorites</a></li>
+					<li class="liMenu"><a id="cont1" href="#content1">content1</a></li>
+					<li class="liMenu"><a id="cont2" href="#content2">content2</a></li>
+					<li class="liMenu"><a id="cont3" href="#content3">content3</a></li>
+					<li class="liMenu"><a id="cont4" href="#content4">content4</a></li>
+				</ul>
+			</div>
+			<!-- END of centerPartOfMenu -->
+
+
+				
+		</div>
+		<!-- END of menu -->
 
 
 	</div>
@@ -72,20 +138,18 @@
 	
 	<div id="container">
 	
-		<div id="ajaxDiv">
-
-
 			<!-- ***CONTENU TO BE ADDED HERE WITH AJAX CALLS*** -->
-
-
-		</div>
-		<!-- END of ajaxDiv -->
-
-		<div id="footer">FOOTER</div>
-		<!-- END of footer -->
 
 	</div>
 	<!-- END of container -->
+
+	<div id="footer">FOOTER</div>
+	<!-- END of footer -->
+
+
+
+
+
 
 	<!-- jquery module -->
 	<script src="js/jquery-1.12.0.min.js" type="text/javascript"></script>
@@ -102,13 +166,13 @@
 	<!-- carousell efect -->
 	<script src="plugins/slick-master/slick.min.js" type="text/javascript"></script>
 	
-	<!-- Google search module -->
- 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-
+	<!-- my modules -->
 	<script src="js/app.js"></script>
 	<script src="js/app_ui.js"></script>
 
-
+	<!-- Google search module -->
+  	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+ 	
 	<script language="Javascript" type="text/javascript">
 		google.load("search", "1");
 	</script>

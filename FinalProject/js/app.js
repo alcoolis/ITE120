@@ -1,10 +1,11 @@
 /**
- * 
+ * ALTINTZIS Miltiadis 21/01/2016
  */
 
 
 function init()
 {
+	//load home div when page is first time loaded
 	ajaxCall("div/homeDiv.html", false);
 	
 };
@@ -12,21 +13,21 @@ function init()
 $(function()
 {
 	init();
-	
+
+	//load div's when button from upperNav menu is clicked (button id=div name inside div folder)
 	$('#upperNav a').click(function()
 	{
-		var link=this.id;
-		ajaxCall("div/"+link+".html", false);
+		ajaxCall("div/"+this.id+".html", false);
 	});
 	
+	//load searchDiv.html when search_button is clicked
 	$('#search_button').click(function()
 	{
-		ajaxCall("div/searchDiv.html", true);
+		ajaxCall("div/searchDiv.html", true); //flag true for calling doSearch(); inside ajaxCall function
 	});
-	
-
 });
 
+//calling for loading div's inside the container div of index.html
 function ajaxCall(urlAjax, flag)
 {
 	$.ajax(
@@ -36,7 +37,7 @@ function ajaxCall(urlAjax, flag)
 		dataType : "html",
 		success : function(data)
 		{
-			$('#ajaxDiv').html(data);
+			$('#container').html(data);
 			
 			if (flag)
 			{
@@ -47,6 +48,7 @@ function ajaxCall(urlAjax, flag)
 	
 }
 
+//google search module
 function doSearch()
 {
 	var ss = $("#search_term").val();
