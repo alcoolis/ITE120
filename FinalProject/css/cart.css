@@ -1,0 +1,14 @@
+.cartDiv {
+	margin-top: 169px;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.cartDiv p{
+	margin: 100px;
+	width: 50%;
+	margin: 0 AUTO;
+	padding-top: 50px;
+	color: yellow;
+}

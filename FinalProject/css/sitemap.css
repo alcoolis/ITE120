@@ -1,0 +1,14 @@
+.sitemapDiv {
+	margin-top: 169px;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.sitemapDiv p{
+	margin: 100px;
+	width: 50%;
+	margin: 0 AUTO;
+	padding-top: 50px;
+	color: blue;
+}

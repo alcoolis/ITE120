@@ -1,13 +1,8 @@
-/**
- * ALTINTZIS Miltiadis 21/01/2016
- */
-
 
 function init()
 {
 	//load home div when page is first time loaded
 	ajaxCall("div/homeDiv.html", false);
-	
 };
 
 $(function()
@@ -15,17 +10,40 @@ $(function()
 	init();
 
 	//load div's when button from upperNav menu is clicked (button id=div name inside div folder)
-	$('#upperNav a').click(function()
+	$('.divLinks a').click(function()
 	{
-		ajaxCall("div/"+this.id+".html", false);
+		doClick(this.id);
 	});
 	
 	//load searchDiv.html when search_button is clicked
 	$('#search_button').click(function()
 	{
 		ajaxCall("div/searchDiv.html", true); //flag true for calling doSearch(); inside ajaxCall function
+		$('#menu').removeClass('visible');
 	});
 });
+
+function doClick(div)
+{ 
+	var extention='';
+	
+	if (div === 'loginDiv' || div === 'cartDiv')
+		extension='.php';
+	else
+		extension='.html';
+	
+	ajaxCall("div/" + div + extension, false);
+	
+	if (div === "homeDiv")
+	{
+		$('#menu').addClass('visible');
+	}
+	else
+	{
+		$('#menu').removeClass('visible');
+		
+	}
+}
 
 //calling for loading div's inside the container div of index.html
 function ajaxCall(urlAjax, flag)

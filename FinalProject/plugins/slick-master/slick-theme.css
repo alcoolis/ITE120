@@ -145,7 +145,7 @@
 .slick-dots
 {
     position: absolute;
-    bottom: 525px;
+    top: 20px;
 
     display: block;
 

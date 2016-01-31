@@ -1,6 +1,3 @@
-/**
- * ALTINTZIS Miltiadis 21/01/2016
- */
 
 function init_ui()
 {
@@ -26,6 +23,19 @@ $(function()
 		}
 	});
 	
+	//Add text-decoration: underline when hover .colorFontLink div's
+	$(document).on(
+	{
+		mouseenter : function()
+		{
+			$(this).css("text-decoration", "underline");
+		},
+		mouseleave : function()
+		{
+			$(this).css("text-decoration", "none");
+		}
+	}, '.colorFontLink');
+	
 	// open search form
 	$("#search_link").on("click", function()
 	{
@@ -50,6 +60,7 @@ $(function()
 			  return false;
 		},
 		//2.
+		
 		mouseenter : function()
 		{
 			$('img', this).fadeTo(200, 1);// 200=ms
@@ -77,6 +88,40 @@ $(function()
 		}
 	}, '.category');
 	
+	// animate colors and text decoration of .hoverclass div's
+	//*IMPORTANT* plugin jquery-color is required to animate colors
+	var speedin = 200;
+	var speedout = 400;
+	$(".hoverClass").hover(function()
+	{
+		$('p', this).css(
+		{
+			"text-decoration" : "underline"
+		}, speedin);
+		$('img:first', this).stop(true, false).animate(
+		{
+			backgroundColor : "white",
+		}, speedout);
+		$('div:first', this).stop(true, false).animate(
+		{
+			backgroundColor : "white",
+		}, speedout);
+	}, function()
+	{
+		$('p', this).css(
+		{
+			"text-decoration": "none"
+		}, speedout);
+		$('img:first', this).stop(true, false).animate(
+		{
+			backgroundColor : "black",
+		}, speedout);
+		$('div:first', this).stop(true, false).animate(
+		{
+			backgroundColor : "black",
+		}, speedout);
+	});
+	
 	// make .clickable div's elements clickable
 	$('.clickable').click(function()
 	{
@@ -84,7 +129,9 @@ $(function()
 		return false;
 	});
 	
-	// Animation when click a menuItem smoothScroll inside page to find the apropriate category
+	//scroll-effects plugin
+	//Animation when click a menuItem smoothScroll inside page to find the apropriate category
+	//*IMPORTANT* plugin jquery-easing is required to change easing to the animattion.
 	$('a[href*="#"]:not([href="#"])').click(function()
 	{
 		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname)
@@ -95,11 +142,10 @@ $(function()
 			{
 				$('html,body').animate(
 				{
-					scrollTop : target.offset().top - 82
-				}, 1000);
+					scrollTop : target.offset().top - 80
+				}, 2000, 'easeInOutQuart');
 				return false;
 			}
 		}
 	});
-	
 });

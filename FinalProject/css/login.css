@@ -1,0 +1,166 @@
+.loginDiv {
+	font-size: 0.4em;
+	margin-top: 169px;
+	padding-bottom: 100px;
+	background: white;
+	color: #666666;
+	font-family: 'RobotoDraft', 'Roboto', sans-serif;
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.logTitle {
+	padding: 50px 0;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
+.logTitle h1 {
+	margin: 0 0 20px;
+	font-size: 48px;
+	font-weight: 300;
+}
+
+.logTitle span {
+	font-size: 12px;
+}
+
+.logForm-module {
+	position: relative;
+	background: #666;
+	max-width: 500px;
+	width: 100%;
+	border-top: 5px solid black;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+	margin: 0 auto;
+}
+
+.logForm-module .logToggle {
+	cursor: pointer;
+	position: absolute;
+	top: -0;
+	right: -0;
+	background: black;
+	width: 30px;
+	height: 30px;
+	margin: -5px 0 0;
+	color: #ffffff;
+	font-size: 12px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.logForm-module .logToggle .logTooltip {
+	position: absolute;
+	top: 5px;
+	right: -105px;
+	display: block;
+	background: rgba(0, 0, 0, 0.6);
+	width: auto;
+	padding: 5px;
+	font-size: 10px;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.logForm-module .logToggle .logTooltip:before {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: -5px;
+	display: block;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-right: 5px solid rgba(0, 0, 0, 0.6);
+}
+
+.logForm-module .logForm {
+	display: none;
+	padding: 40px;
+}
+
+.logForm-module .logForm:nth-child(2) {
+	display: block;
+}
+
+.logForm-module h2 {
+	margin: 0 0 20px;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1;
+	color: white;
+}
+
+.logForm-module input {
+	outline: none;
+	display: block;
+	width: 100%;
+	background: #BBB;
+    border: 1px solid #333;
+	margin: 0 0 20px;
+	padding: 10px 15px;
+	box-sizing: border-box;
+	font-wieght: 400;
+	-webkit-transition: 0.3s ease;
+	transition: 0.3s ease;
+}
+
+.logForm-module input:focus {
+	border: 1px solid white;
+	color: #333333;
+}
+
+.logForm-module button {
+	cursor: pointer;
+	background: black;
+	width: 100%;
+	border: 0;
+	margin-top: 30px;
+	padding: 10px 15px;
+	color: #ffffff;
+	-o-transition: color .2s ease-out, background 0.5s ease-in;
+	-ms-transition: color .2s ease-out, background 0.5s ease-in;
+	-moz-transition: color .2s ease-out, background 0.5s ease-in;
+	-webkit-transition: color .2s ease-out, background 0.5s ease-in;
+	transition: color .2s ease-out, background 0.5s ease-in;
+}
+
+.logForm-module button:hover {
+	background: white;
+	color: black;
+}
+
+.logForm-module .resetPass {
+	background: #f2f2f2;
+	width: 100%;
+	padding: 15px 40px;
+	box-sizing: border-box;
+	color: #666666;
+	font-size: 12px;
+	text-align: center;
+}
+
+.logForm-module .resetPass a {
+	color: #333333;
+	text-decoration: none;
+}
+
+
+.logForm-module input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #f2f2f2;
+}
+.logForm-module input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #f2f2f2;
+   opacity:  1;
+}
+.logForm-module input::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #f2f2f2;
+   opacity:  1;
+}
+.logForm-module input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #f2f2f2;
+}
+.logForm-module input:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+    color: #f2f2f2;
+}
