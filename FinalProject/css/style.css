@@ -36,9 +36,10 @@ body {
 
 #logo img {
 	margin-top: 15px;
-	height: 50%;
-	width: auto;
-	z-index: 190;
+    height: 75%;
+    margin-left: 25%;
+    width: auto;
+    z-index: 190;
 	-o-transition: height 0.3s ease-in-out, margin-left 0.3s ease-in-out,
 		margin-top 0.3s ease-in-out;
 	-ms-transition: height 0.3s ease-in-out, margin-left 0.3s ease-in-out,
@@ -52,10 +53,9 @@ body {
 }
 
 #logo img:HOVER {
-	margin-left: -8px;
-	margin-top: 15px;
-	height: 55%;
-	margin-top: 10px;
+	margin-left: 17%;
+    margin-top: 3px;
+    height: 85%;
 }
 
 #upperNav {
@@ -189,8 +189,9 @@ body {
 
 #cartText, #loginText {
 	height: 100%;
-	width: 62%;
-	float: right;
+}
+#cartText a, #loginText a{
+	text-decoration: none;
 }
 
 #cartImageItemsDiv {
@@ -222,14 +223,14 @@ body {
 }
 
 #cartText p, #loginText p {
-	margin-top: 10%;
-	text-align: left;
-	font-size: 1.2vw;
-	font-family: 'Orbitron', sans-serif;
+	margin-top: 6%;
+    font-size: 1em;
+    font-family: 'Jura', sans-serif;
 }
 
 #menu {
-	z-index: 200;
+	z-index: 200;    
+	font-family: 'Jura', sans-serif;
 }
 
 /*stick-Up plugin class*/
@@ -286,7 +287,7 @@ body {
 
 .liMenu a {
 	text-decoration: none;
-	font-size: 12pt;
+	font-size: 14pt;
 	display: block;
 	padding: 20px;
 	border: solid white 1px;

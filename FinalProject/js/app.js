@@ -1,8 +1,10 @@
+var loginFlag=-1;
 
 function init()
 {
 	//load home div when page is first time loaded
-	ajaxCall("div/homeDiv.html", false);
+	ajaxCall("div/homeDiv.html", 1);
+
 };
 
 $(function()
@@ -18,12 +20,12 @@ $(function()
 	//load searchDiv.html when search_button is clicked
 	$('#search_button').click(function()
 	{
-		ajaxCall("div/searchDiv.html", true); //flag true for calling doSearch(); inside ajaxCall function
+		ajaxCall("div/searchDiv.html", 2); //flag true for calling doSearch(); inside ajaxCall function
 		$('#menu').removeClass('visible');
 	});
 });
 
-function doClick(div)
+function doClick(div, flag)
 { 
 	var extention='';
 	
@@ -32,7 +34,7 @@ function doClick(div)
 	else
 		extension='.html';
 	
-	ajaxCall("div/" + div + extension, false);
+	ajaxCall("div/" + div + extension, flag);
 	
 	if (div === "homeDiv")
 	{
@@ -56,13 +58,53 @@ function ajaxCall(urlAjax, flag)
 		success : function(data)
 		{
 			$('#container').html(data);
+		}
+	}).done(function()
+	{
+		
+		if (flag==2)
+		{
+			// it runs after searchDiv is loaded
+			doSearch();
+		}
+		else if(flag==3)
+		{
+			$('.logTooltip').text('Click To Register');
+			// hide-show the button resetPass
+			$('.resetPass').show('slow');
+			$('.logForm-module .logForm').css('display', 'none');
+			$('.logForm-module .logForm:nth-child(2)').css('display', 'block');
 			
-			if (flag)
+			if(loginFlag==1 || loginFlag<0)
 			{
-				doSearch();
+				$('.logForm-module .logForm').css('display', 'block');
+				$('.logForm-module .logForm:nth-child(2)').css('display', 'none');
+				
+				toggleloginRegister(this);
+
+				loginFlag=2;
+			}
+			
+		}
+		else if(flag==4)
+		{	
+			$('.logTooltip').text('Click To Login');
+			// hide-show the button resetPass
+			$('.resetPass').hide();
+			$('.logForm-module .logForm').css('display', 'block');
+			$('.logForm-module .logForm:nth-child(2)').css('display', 'none');
+
+			if(loginFlag==2 || loginFlag<0)
+			{
+				$('.logForm-module .logForm').css('display', 'none');
+				$('.logForm-module .logForm:nth-child(2)').css('display', 'block');
+				
+				toggleloginRegister(this);
+				
+				loginFlag=1;
 			}
 		}
-	});
+    });
 	
 }
 
@@ -89,4 +131,20 @@ function doSearch()
 	$('.gsc-control').css("width", "80%");
 	$('.gsc-control').css("margin", "0 auto");
 
+}
+
+function toggleloginRegister(element)
+{
+	
+	// switch the icon
+	$(element).children('i').toggleClass('fa-pencil');
+	
+	// switch the formes
+	$('.logForm').animate(
+	{
+		height : "toggle",
+		'padding-top' : 'toggle',
+		'padding-bottom' : 'toggle',
+		opacity : "toggle"
+	}, "slow");
 }

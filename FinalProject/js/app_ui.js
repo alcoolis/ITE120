@@ -3,8 +3,14 @@ function init_ui()
 {
 	// create hidden search form inside search_form div (created via JQuery to avoid to see the div when tha page first loaded)
 	$("#search_form").html("<input id='search_term' type='text' value='' placeholder='text...' /><input id='search_button' type='submit' value='search' />").hide();
-	
+	//create hidden red circle image inside shopping cart (created via JQuery to avoid to see the div when tha page first loaded)
+	$('#cartImageItemsDiv').html("<div id='cartImageItemsNumberDiv'>2</div>" +
+			"<!-- END of cartImageItemsNumberDiv -->" +
+			"<div id='cartImageItemsImageDiv'>" +
+				"<img id='itemsImage' src='img/cart_item.png' />" +
+			"</div><!-- END of cartImageItemsImageDiv -->").hide();
 }
+
 
 $(function()
 {
@@ -88,16 +94,12 @@ $(function()
 		}
 	}, '.category');
 	
-	// animate colors and text decoration of .hoverclass div's
+	// animate colors of .hoverclass div's
 	//*IMPORTANT* plugin jquery-color is required to animate colors
 	var speedin = 200;
 	var speedout = 400;
 	$(".hoverClass").hover(function()
 	{
-		$('p', this).css(
-		{
-			"text-decoration" : "underline"
-		}, speedin);
 		$('img:first', this).stop(true, false).animate(
 		{
 			backgroundColor : "white",
@@ -108,10 +110,6 @@ $(function()
 		}, speedout);
 	}, function()
 	{
-		$('p', this).css(
-		{
-			"text-decoration": "none"
-		}, speedout);
 		$('img:first', this).stop(true, false).animate(
 		{
 			backgroundColor : "black",

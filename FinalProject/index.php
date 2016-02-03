@@ -1,3 +1,35 @@
+<?php 
+    session_start();
+    
+    if(isset($_GET['q']))
+    {
+        $request=$_GET['q'];
+    
+        if($request=="logout")
+        {
+
+            echo <<<EOT
+    <script>
+            $('#loginText p').html("<a href="+'"javascript:doClick('+"'loginDiv', 3)"+'" class='+"'colorFontLink'>Login-</a><a href="+'"javascript:doClick('+"'loginDiv', 4)"+'" class='+"'colorFontLink'>Signup</a>");
+            $('#menu').addClass('visible');
+            $('#loginImage').attr("src","img/lock.png");
+            //$('#loginFooter').text("login");
+    </script>
+EOT;
+            
+        }
+        elseif ($request=="aboutusDiv")
+        {
+            echo <<<EOT
+    <script>
+           //ajaxCall('div/loginDiv.php', 3);
+    </script>
+EOT;
+            
+        }
+    }
+?>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +51,8 @@
 <link rel="stylesheet" type="text/css" href="plugins/slick-master/slick-theme.css"/>
 <link rel="stylesheet" type="text/css" href="plugins/parallax-effect/style.css">
 
-
-<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Seaweed+Script' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet" type="text/css">
 
@@ -54,7 +86,7 @@
 			</ul>
 			
 			<form id="search_form" action="" method="get">
-
+<!-- contenu of this form will be created inside init_ui function inside app_ui.js -->
 			</form>
 
 		</div>
@@ -66,17 +98,13 @@
 		<!-- END contactNav-->
 
 
-		<div id="cartDiv" class="clickable hoverClass colorFontLinkNotUnderlined">
-			<a href="javascript:doClick('cartDiv');"></a>
+		<div id="cartDiv" class="clickable colorFontLinkNotUnderlined hoverClass">
+			<a href="javascript:ajaxCall('div/cartDiv.php', 1);"></a>
 
 			<div id="cartImageDiv">
 				<img id="cartImage" src="img/cart.png" />
 				<div id="cartImageItemsDiv">
-					<div id="cartImageItemsNumberDiv">2</div><!-- END of cartImageItemsNumberDiv -->
-					<div id="cartImageItemsImageDiv">
-						<img id="itemsImage" src="img/cart_item.png" />
-					</div>
-					<!-- END of cartImageItemsImageDiv -->
+<!-- contenu of this div will be created inside init_ui function inside app_ui.js -->
 				</div>
 				<!-- END of cartImageItemsDiv -->
 			</div>
@@ -92,16 +120,52 @@
 
 
 
-		<div id="logIn" class="clickable hoverClass colorFontLinkNotUnderlined">
-			<a href="javascript:doClick('loginDiv');"></a>
-
+		<div id="logIn" class="hoverClass">
 			<div id="loginImageDiv">
-				<img id="loginImage" src="img/lock.png" />
+				<img id="loginImage" src=
+				
+				
+		<?php
+            if(isset($_SESSION['username']) && !empty($_SESSION['username']))
+                echo "img/user.png";
+            else
+                echo "img/lock.png";
+        ?>
+				
+				
+				
+				/>
 			</div>
 			<!-- END of loginImageDiv -->
 
 			<div id="loginText">
-				<p>Not logged</p>
+				<p>
+				
+				
+		<?php
+            if(isset($_SESSION['username']) && !empty($_SESSION['username'])) 
+            {
+                $username=$_SESSION["username"]; 
+                
+                echo <<<EOF
+                    <a href="javascript:doClick('loginDiv');" class="colorFontLink">$username</a><span style="color:white"> - </span><a href="javascript:doClick('loginDiv');" class="colorFontLink">Logout</a>
+                
+EOF;
+            }
+            else
+            {
+                echo <<<EOF
+                    <a href="javascript:doClick('loginDiv', 3);" class="colorFontLink">Login-</a>
+                    <a href="javascript:doClick('loginDiv', 4);" class="colorFontLink">Signup</a>
+                
+                
+EOF;
+            }
+
+        ?>
+        
+        
+        		</p>
 			</div>
 			<!-- END of loginText -->
 		</div>
@@ -116,11 +180,11 @@
 				<!-- END of fleche -->
 				
 				<ul>
-					<li class="liMenu active"><a class="colorFontLinkNotUnderlined" id="favorites" href="#contentFavorites">Favorites</a></li>
-					<li class="liMenu"><a class="colorFontLinkNotUnderlined" id="cont1" href="#content1">content1</a></li>
-					<li class="liMenu"><a class="colorFontLinkNotUnderlined" id="cont2" href="#content2">content2</a></li>
-					<li class="liMenu"><a class="colorFontLinkNotUnderlined" id="cont3" href="#content3">content3</a></li>
-					<li class="liMenu"><a class="colorFontLinkNotUnderlined" id="cont4" href="#content4">content4</a></li>
+					<li class="liMenu active"><a class="colorFontLinkNotUnderlined" id="favorites" href="#contentFavorites">FAVORITES</a></li>
+					<li class="liMenu"><a class="colorFontLinkNotUnderlined" id="cont1" href="#content1">SUPERSPORT</a></li>
+					<li class="liMenu"><a class="colorFontLinkNotUnderlined" id="cont2" href="#content2">NAKED</a></li>
+					<li class="liMenu"><a class="colorFontLinkNotUnderlined" id="cont3" href="#content3">ON-OFF</a></li>
+					<li class="liMenu"><a class="colorFontLinkNotUnderlined" id="cont4" href="#content4">OFF-ROAD</a></li>
 				</ul>
 			</div>
 			<!-- END of centerPartOfMenu -->
@@ -173,8 +237,8 @@
 
 			<ul>
 				<li>MY ACCOUNT</li>
-				<li><a class="colorFontLink" href="javascript:ajaxCall('div/loginDiv.php', false);">Login</a></li>
-				<li><a class="colorFontLink" id="myDiv" href="javascript:ajaxCall('div/loginDiv.php', false);">Register</a></li>
+				<li><a id="loginFooter" class="colorFontLink" href="javascript:doClick('loginDiv', 3);">Login</a></li>
+				<li><a class="colorFontLink" href="javascript:doClick('loginDiv', 4);">Register</a></li>
 				<li><a class="colorFontLink" href="#">Cart</a></li>
 			</ul>
 		</div>
@@ -258,7 +322,7 @@
 		google.load("search", "1");
 	</script>
 	 -->
-	
+
 	<script type="text/javascript">
 		//initiating jQuery
 		
