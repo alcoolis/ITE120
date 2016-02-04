@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script language="javascript" type="text/javascript">
+
+	function showResult()
+	{
+		var number1 = document.getElementById("number1").value;
+		var number2 = document.getElementById("number2").value;
+
+		document.getElementById("result").value=parseInt(number1)+parseInt(number2);
+	}
+</script>
+</head>
+<body>
+
+<input type="text" id="number1"/><br/>
+<input type="text" id="number2"/><br/>
+<input type="text" id="result" disabled/><br/>
+<input type="button" value="Show Result" onclick="showResult()"/>
+
+</body>
+</html>

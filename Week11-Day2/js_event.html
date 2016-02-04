@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+<script language="javascript" type="text/javascript">
+
+var message="hello";
+
+	function showMessage()
+	{
+		alert(this.message);
+	}
+	function showInputBox(msg)
+	{
+		this.message=prompt(msg);
+	}
+	function showYesNo(msg)
+	{
+		var flag=confirm(msg);
+		
+		if(flag)
+			alert('1');
+		else
+			alert('2');
+			
+	}
+</script>
+
+</head>
+<body>
+
+	<input type="button" value="Click Me" onclick="showMessage();" />
+	<br/>
+	<input type="button" value="Show Prompt" onclick="showInputBox('Enter the data.');" />
+	<br/>
+	<input type="button" value="Confirm" onclick="showYesNo('Are you sure???');" />
+
+</body>
+</html>
