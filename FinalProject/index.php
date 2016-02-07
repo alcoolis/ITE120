@@ -1,5 +1,9 @@
 <?php 
     session_start();
+
+    $productPrice = 19000;
+    $clientMail = "your_mail@domain.com";
+    
     
     if(isset($_GET['q']))
     {
@@ -51,20 +55,12 @@ EOT;
 <link rel="stylesheet" type="text/css" href="plugins/slick-master/slick.css"/>
 <link rel="stylesheet" type="text/css" href="plugins/slick-master/slick-theme.css"/>
 <link rel="stylesheet" type="text/css" href="plugins/parallax-effect/style.css">
+<link rel="stylesheet" type="text/css" href="plugins/fancybox/jquery.fancybox.css">
 
 <link href='https://fonts.googleapis.com/css?family=Seaweed+Script' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet" type="text/css">
-
-    
-
-
-<link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.css">
-
-	
-	
-
 
 <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
 <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
@@ -179,7 +175,7 @@ EOF;
 		</div>
 		<!-- END of login-->
 
-		<div id="menu" class="stickyMenu hidden visible">
+		<div id="menu" class="stickyMenu">
 			
 			<div id="centerPartOfMenu">
 				<div id="fleche">
@@ -225,6 +221,41 @@ EOF;
 
 	</div>
 	<!-- END of container -->
+	
+		
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        		<fieldset>
+        			<input type="hidden" name="cmd" value="_cart" />
+        			<input type="hidden" name="add" value="1" />
+        			<input type="hidden" name="business" value="V96EYD2M4YEV4" />
+        			<input type="hidden" name="item_name" value="malakia" />
+        			<p class="productFormLabels">
+                		<label>
+            				Price $120
+                			<input type="hidden" name="amount" value="120" />
+                			<input type="hidden" name="currency_code" value="USD" />
+            			</label>
+        			</p>
+        			<input type="hidden" name="return" value="http://localhost/minicartjs.com/?success" />
+        			<input type="hidden" name="cancel_return" value="http://localhost/minicartjs.com/?cancel" />
+        			<p class="productFormLabels">
+        				<label>
+        					Choose Color:
+        					<input type="hidden" name="on0" value="Color" />
+        					<select name="cartProductColor">
+        						<option value="Bi">Bi</option>
+        						<option value="Black">Black</option>
+        						<option value="Red">Red</option>
+        						<option value="Yellow">Yellow</option>
+        						<option value="Green">Green</option>
+        						<option value="Blue">Blue</option>
+        					</select>
+        				</label>
+        			</p>
+        			<input class="productFormSubmit" type="submit" value="Add to cart" />
+        		</fieldset>
+        	</form>
+    	
 
 	<div id="footer">
 
@@ -232,10 +263,10 @@ EOF;
 
 			<ul>
 				<li>INFORMATION</li>
-				<li><a class="colorFontLink" id="homeDiv" href="#">Home</a></li>
-				<li><a class="colorFontLink" id="contactusDiv" href="#">Contact Us</a></li>
-				<li><a class="colorFontLink" id="aboutusDiv" href="#">About Us</a></li>
-				<li><a class="colorFontLink" id="sitemapDiv" href="#">Sitemap</a></li>
+				<li><a class="colorFontLink" id="homeDiv" href="#mpop">Home</a></li>
+				<li><a class="colorFontLink" id="contactusDiv" href="#con">Contact Us</a></li>
+				<li><a class="colorFontLink" id="aboutusDiv" href="#mon">About Us</a></li>
+				<li><a class="colorFontLink" id="sitemapDiv" href="#son">Sitemap</a></li>
 			</ul>
 		</div>
 		<!-- END of downNav1 -->
@@ -317,8 +348,14 @@ EOF;
 	<!-- add easing to animations -->
 	<script src="plugins/jquery-easing/jquery.easing.1.3.js" type="text/javascript"></script>
 	
-	
+	<!-- add product image gallery -->
 	<script src="plugins/fancybox/jquery.fancybox.js"></script>
+	
+	<!-- add shopping cart -->
+	<script src="plugins/minicart-master/minicart.js"></script>
+	
+	
+	<script src="plugins/browserstate-history/jquery.history.js"></script>
 	
 	<!-- my modules -->
 	<script src="js/app.js"></script>
@@ -357,6 +394,18 @@ EOF;
 					itemHover : 'active'
 				}*/
 			});
+			
+		    $.history.init(function (hash) {
+		        if (hash == "") {
+		            // initialize your app
+		            // runs when page first loads.
+		        } else {
+		            // restore the state from hash
+		            // (i.e. in "http://www.CodeTunnel.com/#/Blog/Page5"
+		            // the hash var would contain "/Blog/Page5".)
+		        }
+		    },
+		    { unescape: ",/" });
 		});
 	</script>
 	

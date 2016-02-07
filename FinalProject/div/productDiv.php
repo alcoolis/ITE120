@@ -1,17 +1,18 @@
+<?php 
+$productPrice = 19000;
+$clientMail = "your_mail@domain.com";
 
+
+?>
 <div class="productDiv">
 
 
 	<div class="productGallery">
 	
-	
     	<!--start-->
     	<div class="gallery clearfix">
             <div class="pics clearfix">
             
-            
-	
-	
 <?php
 if (isset($_GET['q']))
 {
@@ -23,18 +24,16 @@ if (isset($_GET['q']))
         echo "<h1>$request</h1>";
 }
 ?>
-	
-	
                 <div class="thumbs">
-                    <div class="preview"> <a href="#" class="selected" data-full="img/bikes/1.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="img/bikes/1.jpg"/> </a> </div>
-                    <div class="preview"> <a href="#" data-full="img/bikes/2.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="img/bikes/2.jpg"/> </a> </div>
-                    <div class="preview"> <a href="#" data-full="img/bikes/3.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="img/bikes/3.jpg"/> </a> </div>
-                    <div class="preview"> <a href="#" data-full="img/bikes/4.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="img/bikes/4.jpg"/> </a> </div>
-                    <div class="preview"> <a href="#" data-full="img/bikes/5.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="img/bikes/5.jpg"/> </a> </div>
+                    <div class="preview"> <a href="#" class="selected" data-full="../img/bikes/1.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="../img/bikes/1.jpg"/> </a> </div>
+                    <div class="preview"> <a href="#" data-full="../img/bikes/2.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="../img/bikes/2.jpg"/> </a> </div>
+                    <div class="preview"> <a href="#" data-full="../img/bikes/3.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="../img/bikes/3.jpg"/> </a> </div>
+                    <div class="preview"> <a href="#" data-full="../img/bikes/4.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="../img/bikes/4.jpg"/> </a> </div>
+                    <div class="preview"> <a href="#" data-full="../img/bikes/5.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="../img/bikes/5.jpg"/> </a> </div>
                 </div>
-                <a href="img/bikes/1.jpg" class="full" title="Spring 2013 | Luna + Hill"> 
+                <a href="../img/bikes/1.jpg" class="full" title="Spring 2013 | Luna + Hill"> 
                     <!-- first image is viewable to start --> 
-                	<img src="img/bikes/3.jpg"> 
+                	<img src="../img/bikes/3.jpg"> 
                 </a> 
             </div>
     	</div>
@@ -52,7 +51,41 @@ if (isset($_GET['q']))
 	</div>
 	
 	<div id="containerProductDiv">
-		
+	
+
+
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        		<fieldset>
+        			<input type="hidden" name="cmd" value="_cart" />
+        			<input type="hidden" name="add" value="1" />
+        			<input type="hidden" name="business" value="V96EYD2M4YEV4" />
+        			<input type="hidden" name="item_name" value="malakia" />
+        			<p class="productFormLabels">
+                		<label>
+            				Price $120
+                			<input type="hidden" name="amount" value="120" />
+                			<input type="hidden" name="currency_code" value="USD" />
+            			</label>
+        			</p>
+        			<input type="hidden" name="return" value="http://localhost/minicartjs.com/?success" />
+        			<input type="hidden" name="cancel_return" value="http://localhost/minicartjs.com/?cancel" />
+        			<p class="productFormLabels">
+        				<label>
+        					Choose Color:
+        					<input type="hidden" name="on0" value="Color" />
+        					<select name="cartProductColor">
+        						<option value="Bi">Bi</option>
+        						<option value="Black">Black</option>
+        						<option value="Red">Red</option>
+        						<option value="Yellow">Yellow</option>
+        						<option value="Green">Green</option>
+        						<option value="Blue">Blue</option>
+        					</select>
+        				</label>
+        			</p>
+        			<input class="productFormSubmit" type="submit" value="Add to cart" />
+        		</fieldset>
+        	</form>
 	
 		<div class="specifictionsTables">
 	
@@ -119,6 +152,7 @@ if (isset($_GET['q']))
         			</tbody>
         		</table>
     		</div>
+	       <!-- End of engine -->
     
     		<div id="chassis" class="productTab">
         		<div class="divide-tables">
@@ -174,6 +208,7 @@ if (isset($_GET['q']))
         			</tbody>
         		</table>
     		</div>
+	       <!-- End of chassis -->
     
   			<div id="dimensions" class="productTab">  
         		<div class="divide-tables">
@@ -212,6 +247,7 @@ if (isset($_GET['q']))
         			</tbody>
         		</table>
     		</div>
+	       <!-- End of dimensions -->
     		
     		<div id="capacities" class="productTab">	
         		<div class="divide-tables">
@@ -230,9 +266,11 @@ if (isset($_GET['q']))
         			</tbody>
         		</table>
     		</div>
+	       <!-- End of capacities -->
     		
     		
 		</div>
 		
 	</div>
+	<!-- End of containerProductDiv -->
 </div>

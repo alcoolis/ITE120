@@ -45,7 +45,7 @@ function doClick(div, flag, request)
 	else
 		extension = '.html';
 	
-	ajaxCall("div/" + div + extension + request, flag);
+	ajaxCall("" + div + extension + request, flag);
 	
 	if (div === "homeDiv")
 		$('#menu').show();
@@ -55,7 +55,16 @@ function doClick(div, flag, request)
 
 //calling for loading div's inside the container div of index.html
 function ajaxCall(urlAjax, flag)
-{
+{	
+
+	var History = window.History;
+	History.enabled;
+	History.Adapter.bind(window, 'statechange', function()
+	{
+		var State = History.getState();
+		History.log(State.data, State.title, State.url);
+	});
+
 	$('#container').css('min-height', '1200px');
 	
 	$.ajax(
@@ -69,10 +78,25 @@ function ajaxCall(urlAjax, flag)
 		}
 	}).done(function()
 	{
+		History.pushState({state:1,rand:Math.random()}, urlAjax, urlAjax);
 		
 		$('#container').css('min-height', '0');
 		
-		if (flag == 2)
+		if (flag==1)
+		{
+
+			paypal.minicart.render();
+
+			paypal.minicart.cart.on('add', function (idx, product, isExisting) 
+			{
+				if (!product.get('cartProductColor')) 
+				{
+					this.remove(idx);
+					alert('Please select an option first!');
+				}
+			});
+		}
+		else if (flag == 2)
 		{
 			// it runs after searchDiv is loaded
 			var ss = $("#search_term").val();
@@ -143,73 +167,88 @@ function ajaxCall(urlAjax, flag)
 			});
 			 */
 
-		    $(".preview a").on("click", function(){
-		        $(".selected").removeClass("selected");
-		        $(this).addClass("selected");
-		        var picture = $(this).data();
-		        
-		        event.preventDefault(); //prevents page from reloading every time you click a thumbnail
+			paypal.minicart.render();
 
+			paypal.minicart.cart.on('add', function (idx, product, isExisting) 
+			{
+				if (!product.get('cartProductColor')) 
+				{
+					this.remove(idx);
+					alert('Please select an option first!');
+				}
+			});
 
-		        $(".full img").fadeOut( 100, function() { 
-		          $(".full img").attr("src", picture.full);
-		          $(".full").attr("href", picture.full);
-		          $(".full").attr("title", picture.title);
-
-		      }).fadeIn();
-
-
-		    });// end on click
-
-		    $(".full").fancybox({
-		        helpers : {
-		            title: {
-		                type: 'inside'
-		            }
-		        },
-		        closeBtn : true,
+			$(".preview a").on("click", function()
+			{
+				$(".selected").removeClass("selected");
+				$(this).addClass("selected");
+				var picture = $(this).data();
+				
+				event.preventDefault(); // prevents page from reloading every time you click a thumbnail
+				
+				$(".full img").fadeOut(100, function()
+				{
+					$(".full img").attr("src", picture.full);
+					$(".full").attr("href", picture.full);
+					$(".full").attr("title", picture.title);
+				}).fadeIn();
+			});// end on click
+	
+			$(".full").fancybox(
+			{
+			        helpers : {title: {type: 'inside'}},
+			        closeBtn : true,
 		    });
 		    
-		    
-		    jQuery('.menuBarProductDiv .tab-links a').on('click', function(e)  
-		    	   	{
-		    	        var currentAttrValue = jQuery(this).attr('href');
-		    	 
-		    	        // Show/Hide Tabs
-		    	        jQuery('.specifictionsTables ' + currentAttrValue).slideDown(800).siblings().slideUp(800);
-		    	        
-		    	        //jQuery('.specifictionsTables ' + currentAttrValue).fadeIn(800).siblings().hide();
-		    	        
-		    	        //jQuery('.specifictionsTables ' + currentAttrValue).show().siblings().hide();
-		    	        
-		    	        //jQuery('.specifictionsTables ' + currentAttrValue).siblings().slideUp(400);
-		    	        //jQuery('.specifictionsTables ' + currentAttrValue).delay(400).slideDown(400);
-		    	 
-		    	        // Change/remove current tab to active
-		    	        jQuery(this).parent('li').addClass('productActive').siblings().removeClass('productActive');
-		    	        
-		    	        switch(currentAttrValue)
-		    	        {
-		    	        	case "#engine":
-		    	    			$('.menuBarProductDiv hr').css('margin-left', '5%');
-		    	        		break;
-		    	        	case "#chassis":
-		    	    			$('.menuBarProductDiv hr').css('margin-left', '30%');
-		    	        		break;
-		    	        	case "#dimensions":
-		    	    			$('.menuBarProductDiv hr').css('margin-left', '55%');
-		    	        		break;
-		    	        	case "#capacities":
-		    	    			$('.menuBarProductDiv hr').css('margin-left', '80%');
-		    	        		break;
-		    	        }
-		    	 
-		    	        e.preventDefault();
-		    	    });
-		    
+			paypal.minicart.render();
+
+			paypal.minicart.cart.on('add', function (idx, product, isExisting) 
+			{
+				if (!product.get('cartProductColor')) 
+				{
+					this.remove(idx);
+					alert('Please select an option first!');
+				}
+			});
+					    
+		    jQuery('.menuBarProductDiv .tab-links a').on('click', function(e)
+			{
+				var currentAttrValue = jQuery(this).attr('href');
+				
+				// Show/Hide Tabs
+				jQuery('.specifictionsTables ' + currentAttrValue).slideDown(800).siblings().slideUp(800);
+				
+				// jQuery('.specifictionsTables ' + currentAttrValue).fadeIn(800).siblings().hide();
+				
+				// jQuery('.specifictionsTables ' + currentAttrValue).show().siblings().hide();
+				
+				// jQuery('.specifictionsTables ' + currentAttrValue).siblings().slideUp(400);
+				// jQuery('.specifictionsTables ' + currentAttrValue).delay(400).slideDown(400);
+				
+				// Change/remove current tab to active
+				jQuery(this).parent('li').addClass('productActive').siblings().removeClass('productActive');
+				
+				switch (currentAttrValue)
+				{
+					case "#engine":
+						$('.menuBarProductDiv hr').css('margin-left', '5%');
+						break;
+					case "#chassis":
+						$('.menuBarProductDiv hr').css('margin-left', '30%');
+						break;
+					case "#dimensions":
+						$('.menuBarProductDiv hr').css('margin-left', '55%');
+						break;
+					case "#capacities":
+						$('.menuBarProductDiv hr').css('margin-left', '80%');
+						break;
+				}
+				
+				e.preventDefault();
+			});
 		}
 		
-		//scroll up to 0,0
+		// scroll up to 0,0
 		window.scrollTo(0, 0);
 	});
 	
