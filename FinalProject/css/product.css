@@ -1,0 +1,253 @@
+.productDiv {
+	margin-top: 169px;
+	background-color: #000;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.productDiv h1 {
+	font-family: 'Jura', sans-serif;
+	text-shadow: 2px 2px 4px #000000;
+	text-align: left;
+	padding: 2%;
+	padding-left: 5%;
+	font-size: 2.5em;
+}
+
+.productDiv img {
+	width: 100%;
+	height: auto;
+}
+
+.gallery {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+	z-index: 4;
+}
+
+.pics {
+	width: 96%;
+	margin-top: 2%;
+	padding: 2%;
+	background: gainsboro;
+	border-radius: 0px 0px 2px 2px;
+	box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.05);
+}
+
+.thumbs {
+	float: left;
+	width: 13.99%;
+	padding-right: 2%;
+}
+
+.preview {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.preview:last-child {
+	margin-bottom: 0;
+}
+
+.full {
+	font-size: 12px;
+}
+
+.full, .full img {
+	height: auto;
+	width: 80%;
+}
+
+.previews a:hover, .previews a.selected {
+	
+}
+
+.full img:hover {
+	cursor: pointer;
+}
+
+.clearfix:after {
+	content: ".";
+	visibility: hidden;
+	display: block;
+	height: 0;
+	clear: both;
+}
+/*====================================================================================
+                              fancy box 
+====================================================================================*/
+div.fancybox-skin {
+	border-radius: 1px;
+}
+
+div.fancybox-title {
+	font-family: sans-serif;
+}
+
+a.fancybox-item.fancybox-close {
+	bottom: 9px;
+	right: 12px;
+	top: auto;
+	left: auto;
+	width: 25px;
+	height: 25px;
+	background-image: url(images/icon-close.svg);
+	-webkit-background-size: contain;
+	background-size: contain;
+}
+
+.menuBarProductDiv * {
+	box-sizing: border-box;
+}
+
+.menuBarProductDiv {
+	display: inline-block;
+	font: 300 100% 'Helvetica Neue', Helvetica, Arial;
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+	z-index: 5;
+}
+
+.menuBarProductDiv ul li {
+	display: inline;
+	text-align: center;
+}
+
+.tab-links:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+
+.menuBarProductDiv a {
+	display: inline-block;
+	padding: .75rem 0;
+	margin: 0;
+	text-decoration: none;
+	border-radius: 0px 0px 20px 20px;
+	color: #333;
+	width: calc(100%/ 4 - 4px);
+	background-color: white;
+	transition: all linear 0.15s;
+}
+
+.menuBarProductDiv a:HOVER{    
+	background: tomato;
+    text-decoration: none;
+    color: white;
+	
+}
+
+.menuBarProductDiv hr {
+	position: relative;
+	height: .25rem;
+	width: 15%;
+	margin: 0;
+	margin-left: 5%;
+	margin-top: -43px;
+	z-index: 10;
+	background: tomato;
+	border: none;
+	transition: .3s ease-in-out;
+}
+
+/*
+.menuBarProductDiv .one:hover ~ hr {
+	margin-left: 5%;
+}
+
+
+.menuBarProductDiv .two:hover ~ hr {
+	margin-left: 30%;
+}
+
+.menuBarProductDiv .three:hover ~ hr {
+	margin-left: 55%;
+}
+
+.menuBarProductDiv .four:hover ~ hr {
+	margin-left: 80%;
+}
+*/
+
+#containerProductDiv {
+    position: relative;
+    width: 90%;
+    left: 5%;
+    min-width: 500px;
+    margin-top: -4%;
+    z-index: 2;
+    padding-bottom: 10%;
+}
+
+li.productActive a, li.productActive a:hover {
+	background-color:  gainsboro;
+	color: #4c4c4c;
+}
+
+/*----- Content of Tabs -----*/
+.specifictionsTables {
+	padding-top: 15%;
+	border-radius: 3px;
+}
+
+.productTab {
+	background-color: #D8D8D7;    
+    width: 95%;
+    margin: 0 auto;
+    display: none;
+}
+.productTab table{
+	width: 97%;
+}
+.productTab.productActive{
+	display: block;
+}
+
+.divide-tables h2{   
+	font-family: 'Jura', sans-serif;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: left;
+    padding: 2%;
+    padding-left: 5%;
+    font-size: 2em;
+	
+}
+
+.productTab td{
+	background-color: #F3F3F3;
+    padding-top: 2%;
+    border-left: solid 5px #D8D8D7;
+    border-bottom: solid 1px #D8D8D7;
+}
+
+.productTab td:last-child{
+    border-left: solid 20px #D8D8D7;
+}
+.productTab tr:last-child{
+    border-bottom: solid 50px #D8D8D7;
+}
+
+
+
+.titleProduct{
+	padding: 20px;
+    width: 30%;
+	
+}
+.titleProduct p{
+	text-align: left;
+	font-weight: bold;
+}
+
+.detailProduct{
+	width: 60%;
+	
+}
+.detailProduct p{
+	
+}

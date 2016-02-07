@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <div class="cartDiv">
 
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer

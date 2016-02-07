@@ -1,22 +1,18 @@
 <?php
-
 $HOST_NAME = 'localhost';
-$USER_NAME = 'miltiadi_user';
-$PASSWORD = 'user_password';
-$DB_NAME = 'miltiadi_ITE_db';
-
+$USER_NAME = 'miltiadi_user'; //altintzi_user or miltiadi_user
+$PASSWORD = 'user_password'; //lUW3v5#5]DW_ or user_password
+$DB_NAME = 'miltiadi_ITE_db'; //altintzi_ITE_db or miltiadi_ITE_db
 $CONN = new mysqli($HOST_NAME, $USER_NAME, $PASSWORD, $DB_NAME);
-
 if($CONN->connect_error)
 {
-    echo "status: error";
+    //echo "status: error";
     die($CONN->connect_error);
 }
 else
 {
-    echo "status: connected </br> </br>";
+    //echo "status: connected </br> </br>";
 }
-
 function checklogin($un, $up)
 {
     global $CONN;
@@ -54,7 +50,7 @@ function addNewUser($un, $up, $um, $uf, $ul, $upn, $upID)
     
     if ($CONN->query($query))
     {
-        echo "ok";
+        //echo "user registered";
     } else
     {
         echo $CONN->error;

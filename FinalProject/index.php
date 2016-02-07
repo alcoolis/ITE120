@@ -10,7 +10,7 @@
 
             echo <<<EOT
     <script>
-            $('#loginText p').html("<a href="+'"javascript:doClick('+"'loginDiv', 3)"+'" class='+"'colorFontLink'>Login-</a><a href="+'"javascript:doClick('+"'loginDiv', 4)"+'" class='+"'colorFontLink'>Signup</a>");
+            $('#loginText p').html("<a href="+'"javascript:doClick('+"'loginDiv', 3)"+'" class='+"'colorFontLink'>Login</a><span style="+'"color:white">-</span><a href='+"'javascript:doClick("+'"loginDiv", 4)'+"' class="+'"colorFontLink">Signup</a>');
             $('#menu').addClass('visible');
             $('#loginImage').attr("src","img/lock.png");
             //$('#loginFooter').text("login");
@@ -44,6 +44,7 @@ EOT;
 <link rel="stylesheet" href="css/aboutus.css" type="text/css" />
 <link rel="stylesheet" href="css/contactus.css" type="text/css" />
 <link rel="stylesheet" href="css/sitemap.css" type="text/css" />
+<link rel="stylesheet" href="css/product.css" type="text/css" />
 <link rel="stylesheet" href="css/search.css" type="text/css" />
 
 <link rel="stylesheet" type="text/css" href="plugins/scroll-effects/animate.css"/>
@@ -55,6 +56,14 @@ EOT;
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet" type="text/css">
+
+    
+
+
+<link rel="stylesheet" href="plugins/fancybox/jquery.fancybox.css">
+
+	
+	
 
 
 <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
@@ -110,7 +119,7 @@ EOT;
 			</div>
 			<!-- END of cartImageDiv -->
 
-			<div id="cartText">
+			<div id="cartText" class="colorFontLink">
 				<p>PRICE: $0</p>
 			</div>
 			<!-- END of cartText -->
@@ -148,15 +157,14 @@ EOT;
                 $username=$_SESSION["username"]; 
                 
                 echo <<<EOF
-                    <a href="javascript:doClick('loginDiv');" class="colorFontLink">$username</a><span style="color:white"> - </span><a href="javascript:doClick('loginDiv');" class="colorFontLink">Logout</a>
+                    <a href="javascript:doClick('loginDiv');" class="colorFontLink">$username</a><span style="color:white">-</span><a href="javascript:doClick('loginDiv');" class="colorFontLink">Logout</a>
                 
 EOF;
             }
             else
             {
                 echo <<<EOF
-                    <a href="javascript:doClick('loginDiv', 3);" class="colorFontLink">Login-</a>
-                    <a href="javascript:doClick('loginDiv', 4);" class="colorFontLink">Signup</a>
+                    <a href="javascript:doClick('loginDiv', 3);" class="colorFontLink">Login</a><span style="color:white">-</span><a href="javascript:doClick('loginDiv', 4);" class="colorFontLink">Signup</a>
                 
                 
 EOF;
@@ -309,11 +317,14 @@ EOF;
 	<!-- add easing to animations -->
 	<script src="plugins/jquery-easing/jquery.easing.1.3.js" type="text/javascript"></script>
 	
+	
+	<script src="plugins/fancybox/jquery.fancybox.js"></script>
+	
 	<!-- my modules -->
 	<script src="js/app.js"></script>
 	<script src="js/app_ui.js"></script>
 
-
+    
 	<!-- Google search module -->
  	<!-- 
   	<script src="https://www.google.com/jsapi" type="text/javascript"></script>

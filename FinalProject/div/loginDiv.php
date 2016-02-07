@@ -75,10 +75,7 @@ if (isset($_GET['q']))
 //toggle from login to register
 $('.logToggle').click(function()
 {
-	if(loginFlag==1)
-		loginFlag=2;
-	else
-		loginFlag=1;
+	loginFlag = (loginFlag==1) ? loginFlag=2 : loginFlag=1;
 	
 	// hide-show the button resetPass
 	$('.resetPass').toggle('slow');

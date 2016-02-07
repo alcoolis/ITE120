@@ -120,13 +120,6 @@ $(function()
 		}, speedout);
 	});
 	
-	// make .clickable div's elements clickable
-	$('.clickable').click(function()
-	{
-		window.location = $(this).find("a").attr("href"); 
-		return false;
-	});
-	
 	//scroll-effects plugin
 	//Animation when click a menuItem smoothScroll inside page to find the apropriate category
 	//*IMPORTANT* plugin jquery-easing is required to change easing to the animattion.

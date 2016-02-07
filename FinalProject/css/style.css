@@ -1,5 +1,6 @@
 body {
 	text-align: center;
+	background-color: black;
 }
 
 .colorFont{
@@ -306,11 +307,13 @@ body {
 	background-color: rgba(255, 255, 255, 1);
 	position: relative;
 	width: 100%;
+	min-height: 1200px;
 	overflow: hidden;
 	min-width: 800px;
 }
 
 #footer {
+	border-top:1px ridge;
 	background-color: rgba(0, 0, 0, 1);
 	position: relative;
 	width: 100%;
