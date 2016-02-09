@@ -1,0 +1,20 @@
+.logoutDiv {
+	font-size: 0.4em;
+	margin-top: 300px;
+	margin-bottom: 100px;
+	background: white;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.logoutDiv p{
+	line-height: 3em;
+	text-align: center;
+	font-family: 'RobotoDraft', 'Roboto', sans-serif;
+	font-size: 3em;
+	color: #666666;
+}
+
+.logoutDiv p span{
+	color: red;
+}

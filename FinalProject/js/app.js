@@ -2,20 +2,28 @@ var loginFlag = -1;
 
 function init()
 {
-	//load home div when page is first time loaded
-	ajaxCall("div/homeDiv.html", 1);
-	
-};
+	//changePage('/homeDiv.html');
+}
 
 $(function()
 {
 	init();
 	
-	//load div's when button from upperNav menu is clicked (button id=div name inside div folder)
-	$('.divLinks a').click(function()
+	$(document).on(
 	{
-		doClick(this.id);
-	});
+		click : function(e)
+		{
+			e.preventDefault();// prevents default click action of <a ...>
+			
+			var urlPath = $(this).attr('href');
+			var title = $(this).text();
+			
+
+			changePage(urlPath);
+		}
+	}, '.divLinks a');
+	
+
 	
 	//load searchDiv.html when search_button is clicked
 	$('#search_button').click(function()
@@ -33,40 +41,59 @@ $(function()
 	
 });
 
-function doClick(div, flag, request)
+function doClick(urlFromHref)
 {
 	//z = b ? x : y // if (b) { z = x; } else { z = y; }
+	//request = (typeof request == 'undefined') ? "" : request;
+	//console.log('in updateContent, url =', div.url);
 	
-	var extention = '';
-	request = (typeof request == 'undefined') ? "" : request;
+	switch(urlFromHref.url.substring(17,21))
+	{
+		case "home":
+			var flag=1;
+			break;
+		case "cart":
+			break;
+		case "logi":
+			var flag=3;
+			break;
+		case "regi":
+			urlFromHref.url="http://localhost/loginDiv.php";
+			var flag=4;
+			break;
+		case "prod":
+			var flag=5;
+			break;
+		case "logo":
+			urlFromHref.url="http://localhost/loginDiv.php";
+			var flag=6;
+			break;
+	}
+			
+	ajaxCall(urlFromHref.url, flag);
 	
-	if (div === 'loginDiv' || div === 'cartDiv' || div === 'productDiv')
-		extension = '.php';
+	if (window.location.pathname === "/homeDiv.html" || window.location.pathname === "/logout.html" )
+	{
+		$('#menu').fadeIn(500);
+	}
 	else
-		extension = '.html';
-	
-	ajaxCall("" + div + extension + request, flag);
-	
-	if (div === "homeDiv")
-		$('#menu').show();
-	else
-		$('#menu').hide();
+	{
+		$('#menu').fadeOut(100);
+		
+	}
+}
+
+function ok()
+{
+	$('#container').load(homeDiv.html);
+	//$('#menu').fadeIn(500);
+	alert("ok");
 }
 
 //calling for loading div's inside the container div of index.html
 function ajaxCall(urlAjax, flag)
-{	
-
-	var History = window.History;
-	History.enabled;
-	History.Adapter.bind(window, 'statechange', function()
-	{
-		var State = History.getState();
-		History.log(State.data, State.title, State.url);
-	});
-
+{
 	$('#container').css('min-height', '1200px');
-	
 	$.ajax(
 	{
 		url : urlAjax,
@@ -75,26 +102,25 @@ function ajaxCall(urlAjax, flag)
 		success : function(data)
 		{
 			$('#container').html(data);
+			paypal.minicart.render();
 		}
 	}).done(function()
 	{
-		History.pushState({state:1,rand:Math.random()}, urlAjax, urlAjax);
-		
 		$('#container').css('min-height', '0');
 		
 		if (flag==1)
 		{
-
-			paypal.minicart.render();
-
-			paypal.minicart.cart.on('add', function (idx, product, isExisting) 
-			{
-				if (!product.get('cartProductColor')) 
-				{
-					this.remove(idx);
-					alert('Please select an option first!');
-				}
-			});
+//
+//			paypal.minicart.render();
+//
+//			paypal.minicart.cart.on('add', function (idx, product, isExisting) 
+//			{
+//				if (!product.get('cartProductColor')) 
+//				{
+//					this.remove(idx);
+//					alert('Please select an option first!');
+//				}
+//			});
 		}
 		else if (flag == 2)
 		{
@@ -167,16 +193,6 @@ function ajaxCall(urlAjax, flag)
 			});
 			 */
 
-			paypal.minicart.render();
-
-			paypal.minicart.cart.on('add', function (idx, product, isExisting) 
-			{
-				if (!product.get('cartProductColor')) 
-				{
-					this.remove(idx);
-					alert('Please select an option first!');
-				}
-			});
 
 			$(".preview a").on("click", function()
 			{
@@ -200,16 +216,16 @@ function ajaxCall(urlAjax, flag)
 			        closeBtn : true,
 		    });
 		    
-			paypal.minicart.render();
-
-			paypal.minicart.cart.on('add', function (idx, product, isExisting) 
-			{
-				if (!product.get('cartProductColor')) 
-				{
-					this.remove(idx);
-					alert('Please select an option first!');
-				}
-			});
+//			paypal.minicart.render();
+//
+//			paypal.minicart.cart.on('add', function (idx, product, isExisting) 
+//			{
+//				if (!product.get('cartProductColor')) 
+//				{
+//					this.remove(idx);
+//					alert('Please select an option first!');
+//				}
+//			});
 					    
 		    jQuery('.menuBarProductDiv .tab-links a').on('click', function(e)
 			{
@@ -247,6 +263,15 @@ function ajaxCall(urlAjax, flag)
 				e.preventDefault();
 			});
 		}
+		else if (flag == 6)
+		{
+//			$('#loginText p').html("<a href='/loginDiv.php' class='colorFontLink'>Log in</a><span style='color:white'> - </span><a href='/div/registerDiv.php' class='colorFontLink'>Sign up</a>");
+//			$('#menu').addClass('visible');
+//			$('#loginImage').attr("src", "img/lock.png");
+			$('#loginFooter').text("login");
+			ajaxCall('/logoutDiv.html', 1);
+		}
+			
 		
 		// scroll up to 0,0
 		window.scrollTo(0, 0);
@@ -268,4 +293,31 @@ function toggleloginRegister(element)
 		'padding-bottom' : 'toggle',
 		opacity : "toggle"
 	}, "slow");
+}
+
+function changePage(PageURI)
+{
+//	if (PageURI === null)
+//	{
+//		PageURI = '';
+//	}
+	
+	var State = History.getState();
+	
+//	if (State.data.PageURL === PageURI)
+//	{
+//		History.replaceState(
+//		{
+//			PageURL : PageURI,
+//			PageID : '1'
+//		}, PageURI,  PageURI);
+//	}
+//	else
+	{
+		History.pushState(
+		{
+			PageURL : PageURI, 
+			rand : Math.random()
+		}, PageURI, PageURI);
+	}
 }

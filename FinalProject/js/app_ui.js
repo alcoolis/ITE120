@@ -60,12 +60,23 @@ $(function()
 	$(document).on(
 	{
 		//1.
-		click : function() 
+		click : function(e)
 		{
-			  window.location = $(this).find("a").attr("href"); 
-			  return false;
+			//alert(e.isPropagationStopped());
+			//window.location = $(this).find("a").attr("href");
+
+			e.preventDefault();
+			e.stopPropagation();
+			//alert(e.isPropagationStopped());
+			
+			var urlPath = $(this).find("a").attr("href");
+			var title = $('div div p:first', this).text();
+			History.pushState(
+			{
+				urlPath : urlPath
+			}, title, urlPath);
 		},
-		//2.
+		// 2.
 		
 		mouseenter : function()
 		{

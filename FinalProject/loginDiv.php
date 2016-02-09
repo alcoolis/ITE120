@@ -1,15 +1,15 @@
 <?php 
 session_start();
 
-$username=$_SESSION["username"];
-
-if($username!=null)
+if(isset($_SESSION['username']))
 {
     session_destroy();
-    header("location:../index.php?q=logout");
+    header("location:index.php?q=logout");
 }
 
+
 ?>
+
 
 <div class="loginDiv">
 
@@ -25,7 +25,7 @@ if (isset($_GET['q']))
     $request = $_GET['q'];
     
     if ($request == "error")
-        echo "Invalid username or password!";
+        echo "<div class='loginError'>Invalid username or password!<div>";
 }
 ?>
 		</label>
@@ -41,7 +41,7 @@ if (isset($_GET['q']))
 		
 		<div id="firstLoginForm" class="logForm">
 			<h2>Login to your account</h2>
-			<form action='loginAction.php?q=login' method='post'>
+			<form action='../loginAction.php?q=login' method='post'>
 				<input type='text' placeholder='Username' name='login-username' required='required'/> 
 				<input type='password' placeholder='Password' name='login-password' required='required'/>
 				<button>Login</button>
@@ -50,7 +50,7 @@ if (isset($_GET['q']))
 		
 		<div id="secondLoginForm"  class="logForm">
 			<h2>Create an account</h2>
-			<form action='loginAction.php?q=register' method='post'>
+			<form action='../loginAction.php?q=register' method='post'>
 				<input type='text' placeholder='Username'  name='register-username' required='required'/> 
 				<input type='password' placeholder='Password' name='register-password' required='required'/> 
 				<input type='password' placeholder='Repeat Password' name='register-repeat-password' required='required'/> 

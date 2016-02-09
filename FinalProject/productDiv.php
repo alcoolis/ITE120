@@ -14,6 +14,7 @@ $clientMail = "your_mail@domain.com";
             <div class="pics clearfix">
             
 <?php
+
 if (isset($_GET['q']))
 {
     $request = $_GET['q'];
@@ -51,8 +52,6 @@ if (isset($_GET['q']))
 	</div>
 	
 	<div id="containerProductDiv">
-	
-
 
 			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
         		<fieldset>

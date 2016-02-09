@@ -4,34 +4,6 @@
     $productPrice = 19000;
     $clientMail = "your_mail@domain.com";
     
-    
-    if(isset($_GET['q']))
-    {
-        $request=$_GET['q'];
-    
-        if($request=="logout")
-        {
-
-            echo <<<EOT
-    <script>
-            $('#loginText p').html("<a href="+'"javascript:doClick('+"'loginDiv', 3)"+'" class='+"'colorFontLink'>Login</a><span style="+'"color:white">-</span><a href='+"'javascript:doClick("+'"loginDiv", 4)'+"' class="+'"colorFontLink">Signup</a>');
-            $('#menu').addClass('visible');
-            $('#loginImage').attr("src","img/lock.png");
-            //$('#loginFooter').text("login");
-    </script>
-EOT;
-            
-        }
-        elseif ($request=="aboutusDiv")
-        {
-            echo <<<EOT
-    <script>
-           //ajaxCall('div/loginDiv.php', 3);
-    </script>
-EOT;
-            
-        }
-    }
 ?>
     
 <!DOCTYPE html>
@@ -44,6 +16,7 @@ EOT;
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="stylesheet" href="css/home.css" type="text/css" />
 <link rel="stylesheet" href="css/login.css" type="text/css" />
+<link rel="stylesheet" href="css/logout.css" type="text/css" />
 <link rel="stylesheet" href="css/cart.css" type="text/css" />
 <link rel="stylesheet" href="css/aboutus.css" type="text/css" />
 <link rel="stylesheet" href="css/contactus.css" type="text/css" />
@@ -79,13 +52,13 @@ EOT;
 		<div id="upperNav" class="divLinks colorFont">
 
 			<ul>
-				<li><a class="colorFontLink" id="homeDiv" href="#">Home</a></li>
+				<li><a class="colorFontLink" id="homeDiv" href="/homeDiv.html">Home</a></li>
 				<li>|</li>
-				<li><a class="colorFontLink" id="contactusDiv" href="#">Contact Us</a></li>
+				<li><a class="colorFontLink" id="contactusDiv" href="/contactusDiv.html">Contact Us</a></li>
 				<li>|</li>
-				<li><a class="colorFontLink" id="aboutusDiv" href="#">About Us</a></li>
+				<li><a class="colorFontLink" id="aboutusDiv" href="/aboutusDiv.html">About Us</a></li>
 				<li>|</li>
-				<li><a class="colorFontLink" id="sitemapDiv"  href="#">Sitemap</a></li>
+				<li><a class="colorFontLink" id="sitemapDiv"  href="/sitemapDiv.html">Sitemap</a></li>
 				<li>|</li>
 				<li><a class="colorFontLink" id="search_link" href="#">Search</a></li>
 			</ul>
@@ -104,7 +77,7 @@ EOT;
 
 
 		<div id="cartDiv" class="clickable colorFontLinkNotUnderlined hoverClass">
-			<a href="javascript:ajaxCall('div/cartDiv.php', 1);"></a>
+			<a href="javascript:ajaxCall('/cartDiv.php', 1);"></a>
 
 			<div id="cartImageDiv">
 				<img id="cartImage" src="img/cart.png" />
@@ -143,7 +116,7 @@ EOT;
 			</div>
 			<!-- END of loginImageDiv -->
 
-			<div id="loginText">
+			<div id="loginText" class="divLinks">
 				<p>
 				
 				
@@ -153,14 +126,14 @@ EOT;
                 $username=$_SESSION["username"]; 
                 
                 echo <<<EOF
-                    <a href="javascript:doClick('loginDiv');" class="colorFontLink">$username</a><span style="color:white">-</span><a href="javascript:doClick('loginDiv');" class="colorFontLink">Logout</a>
+                    <a href="#" class="colorFontLink">$username</a><span style="color:white">-</span><a href="/logoutDiv.html" class="colorFontLink">Logout</a>
                 
 EOF;
             }
             else
             {
                 echo <<<EOF
-                    <a href="javascript:doClick('loginDiv', 3);" class="colorFontLink">Login</a><span style="color:white">-</span><a href="javascript:doClick('loginDiv', 4);" class="colorFontLink">Signup</a>
+                    <a href="/loginDiv.php" class="colorFontLink">Log in</a><span style="color:white"> - </span><a href="/registerDiv.php" class="colorFontLink">Sign up</a>
                 
                 
 EOF;
@@ -263,10 +236,10 @@ EOF;
 
 			<ul>
 				<li>INFORMATION</li>
-				<li><a class="colorFontLink" id="homeDiv" href="#mpop">Home</a></li>
-				<li><a class="colorFontLink" id="contactusDiv" href="#con">Contact Us</a></li>
-				<li><a class="colorFontLink" id="aboutusDiv" href="#mon">About Us</a></li>
-				<li><a class="colorFontLink" id="sitemapDiv" href="#son">Sitemap</a></li>
+				<li><a class="colorFontLink" id="homeDiv" href="#homeDiv">Home</a></li>
+				<li><a class="colorFontLink" id="contactusDiv" href="#contactusDiv">Contact Us</a></li>
+				<li><a class="colorFontLink" id="aboutusDiv" href="#aboutusDiv">About Us</a></li>
+				<li><a class="colorFontLink" id="sitemapDiv" href="#sitemapDiv">Sitemap</a></li>
 			</ul>
 		</div>
 		<!-- END of downNav1 -->
@@ -276,8 +249,8 @@ EOF;
 
 			<ul>
 				<li>MY ACCOUNT</li>
-				<li><a id="loginFooter" class="colorFontLink" href="javascript:doClick('loginDiv', 3);">Login</a></li>
-				<li><a class="colorFontLink" href="javascript:doClick('loginDiv', 4);">Register</a></li>
+				<li><a id="loginFooter" class="colorFontLink" href="/loginDiv.php">Login</a></li>
+				<li><a class="colorFontLink" href="/registerDiv.php">Register</a></li>
 				<li><a class="colorFontLink" href="#">Cart</a></li>
 			</ul>
 		</div>
@@ -354,7 +327,7 @@ EOF;
 	<!-- add shopping cart -->
 	<script src="plugins/minicart-master/minicart.js"></script>
 	
-	
+	<script type="text/javascript">delete History</script>
 	<script src="plugins/browserstate-history/jquery.history.js"></script>
 	
 	<!-- my modules -->
@@ -394,19 +367,41 @@ EOF;
 					itemHover : 'active'
 				}*/
 			});
-			
-		    $.history.init(function (hash) {
-		        if (hash == "") {
-		            // initialize your app
-		            // runs when page first loads.
-		        } else {
-		            // restore the state from hash
-		            // (i.e. in "http://www.CodeTunnel.com/#/Blog/Page5"
-		            // the hash var would contain "/Blog/Page5".)
-		        }
-		    },
-		    { unescape: ",/" });
 		});
+
+		paypal.minicart.render();
+
+// 		paypal.minicart.cart.on('add', function (idx, product, isExisting) 
+// 		{
+// 			if (!product.get('cartProductColor')) 
+// 			{
+// 				this.remove(idx);
+// 				alert('Please select an option first!');
+// 			}
+// 		});
+
+	// Content update and back/forward button handler
+	History.Adapter.bind(window, 'statechange', function()
+	{
+		doClick(History.getState(), 1);
+	});
+
+		
+<?php 
+
+if(isset($_GET['q']))
+{
+    $request=$_GET['q'];
+    
+    if ($request=="error")
+       echo "changePage('/loginDiv.php?q=error');";
+}
+else 
+    echo   "changePage('/homeDiv.html');";
+
+    
+?>
+		
 	</script>
 	
 </body>
