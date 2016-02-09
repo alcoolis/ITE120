@@ -166,6 +166,16 @@
 }
 
 .loginError{
-	color:red;
-	font-size: 20pt;
+	padding-top: 15px;
+	
 }
+
+.loginError p{    
+	color: red;
+    font-size: 16pt;
+    padding: 10px 0 10px 0;
+    border: 1px solid red;
+    width: 39%;
+    margin: 0 auto;
+}
+

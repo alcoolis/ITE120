@@ -95,7 +95,7 @@ a.fancybox-item.fancybox-close {
 	left: auto;
 	width: 25px;
 	height: 25px;
-	background-image: url(images/icon-close.svg);
+	background-image: url(../img/icon-close.svg);
 	-webkit-background-size: contain;
 	background-size: contain;
 }
@@ -201,11 +201,12 @@ li.productActive a, li.productActive a:hover {
     border-radius: 8px;
     background-color: #D8D8D7;
 }
-.productFormLabels:FIRST-CHILD{
-    padding: 11px;
+.productFormLabels:first-of-type{
+    padding: 16px;
 }
 
 .productFormSubmit{
+    text-align: center;
 	float:right;
 	margin-right:30px;
 	
@@ -230,7 +231,7 @@ li.productActive a, li.productActive a:hover {
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-	padding:10px 80px;
+	padding:15px 50px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
 }
@@ -313,4 +314,12 @@ li.productActive a, li.productActive a:hover {
 
 .detailProduct p{
 	
+}
+
+#productColorSelect{
+	border-radius: 5px;
+    padding: 5px;
+}
+#productColorSelect option {
+	border: 1px solid #000;
 }

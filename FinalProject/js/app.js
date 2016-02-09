@@ -2,13 +2,43 @@ var loginFlag = -1;
 
 function init()
 {
-	//changePage('/homeDiv.html');
+	//create hidden red circle image inside shopping cart (created via JQuery to avoid to see the div when tha page first loaded)
+	$('#cartImageItemsDiv').html("<div id='cartImageItemsNumberDiv'>0</div>" +
+			"<!-- END of cartImageItemsNumberDiv -->" +
+			"<div id='cartImageItemsImageDiv'>" +
+				"<img id='itemsImage' src='img/cart_item.png' />" +
+			"</div><!-- END of cartImageItemsImageDiv -->").hide();
+	
+	//initialize minicart
+	paypal.minicart.render();
+	
+	//load items and price if session is open
+	var total=parseInt(paypal.minicart.cart.total());
+	var totalItems=0;
+	
+	var cartItems=paypal.minicart.cart.items();
+	var cartItemsLength=cartItems.length;
+	
+	for (var i = 0; i < cartItemsLength; i++)
+	{
+		totalItems+=parseInt(cartItems[i].get('quantity'));
+	}
+	
+	$('#cartPrice').text(total);
+	
+	if (totalItems > 0)
+	{
+		$('#cartImageItemsNumberDiv').text(totalItems);
+		$('#cartImageItemsDiv').show();
+	}
 }
 
 $(function()
 {
 	init();
 	
+	//change url in the adress bar when you click on .divLinks a link 
+	//then binded function History.Adapter.bind call doClick function
 	$(document).on(
 	{
 		click : function(e)
@@ -28,7 +58,7 @@ $(function()
 	//load searchDiv.html when search_button is clicked
 	$('#search_button').click(function()
 	{
-		ajaxCall("div/searchDiv.html", 2); //flag true for calling doSearch(); inside ajaxCall function
+		ajaxCall("div/searchDiv.html", 2); //flag 2 for calling doSearch(); inside ajaxCall function
 		$('#menu').removeClass('visible');
 	});
 	
@@ -47,6 +77,7 @@ function doClick(urlFromHref)
 	//request = (typeof request == 'undefined') ? "" : request;
 	//console.log('in updateContent, url =', div.url);
 	
+	//set flags 2based on state url //flags change the done function inside ajaxCall function
 	switch(urlFromHref.url.substring(17,21))
 	{
 		case "home":
@@ -72,6 +103,7 @@ function doClick(urlFromHref)
 			
 	ajaxCall(urlFromHref.url, flag);
 	
+	//hide-show sticky menu based on divs called
 	if (window.location.pathname === "/homeDiv.html" || window.location.pathname === "/logout.html" )
 	{
 		$('#menu').fadeIn(500);
@@ -86,7 +118,9 @@ function doClick(urlFromHref)
 //calling for loading div's inside the container div of index.html
 function ajaxCall(urlAjax, flag)
 {
+	
 	$('#container').css('min-height', '1200px');
+	
 	$.ajax(
 	{
 		url : urlAjax,
@@ -99,7 +133,7 @@ function ajaxCall(urlAjax, flag)
 		}
 	}).done(function()
 	{
-
+		//change login and register anchors inside footer (index.php)
 		if($('#unSession').text()=="Log in")
 		{
 			$('#loginFooter').text("login").attr("href", "/loginDiv.php");
@@ -113,22 +147,14 @@ function ajaxCall(urlAjax, flag)
 		
 		$('#container').css('min-height', '0');
 		
-		if (flag==1)
+		
+		if (flag==1)//first flag //depricated
 		{
-//
-//			paypal.minicart.render();
-//
-//			paypal.minicart.cart.on('add', function (idx, product, isExisting) 
-//			{
-//				if (!product.get('cartProductColor')) 
-//				{
-//					this.remove(idx);
-//					alert('Please select an option first!');
-//				}
-//			});
+
+			
 				
 		}
-		else if (flag == 2)
+		else if (flag == 2)// for search div //not finished
 		{
 			// it runs after searchDiv is loaded
 			var ss = $("#search_term").val();
@@ -151,7 +177,7 @@ function ajaxCall(urlAjax, flag)
 			$('.gsc-control').css("width", "80%");
 			$('.gsc-control').css("margin", "0 auto");
 		}
-		else if (flag == 3)
+		else if (flag == 3)// toggle between login and register calls //4=login
 		{
 			$('.logTooltip').text('Click To Register');
 			// hide-show the button resetPass
@@ -170,7 +196,7 @@ function ajaxCall(urlAjax, flag)
 			}
 			
 		}
-		else if (flag == 4)
+		else if (flag == 4)// toggle between login and register calls //4=register
 		{
 			$('.logTooltip').text('Click To Login');
 			// hide-show the button resetPass
@@ -188,18 +214,39 @@ function ajaxCall(urlAjax, flag)
 				loginFlag = 1;
 			}
 		}
-		else if (flag == 5)
+		else if (flag == 5)//loaded for product div
 		{
-			/*
-			$.getScript("plugins/thumbnail-slider/thumbnail-slider.js", function(){
-			    //alert("Running test.js");
-			});			
-			$.getScript("plugins/thumbnail-slider/ninja-slider.js", function(){
-			    //alert("Running test.js");
+			//bind paypall button to minicart
+			var myForm = $("#productFormId")[0];
+			paypal.minicart.view.bind(myForm);
+			
+			//called after cart checkout
+			paypal.minicart.cart.on('checkout', function()
+			{
+				paypal.minicart.cart.destroy();
+				$('#cartImageItemsNumberDiv').text("0");
+				$('#cartImageItemsDiv').hide();
 			});
-			 */
+			
+			//called every time a product is removed from cart
+			paypal.minicart.cart.on('remove', function (idx, product) 
+			{
+				var price = parseInt($('#cartPrice').text());
+				var items = parseInt($('#cartImageItemsNumberDiv').text());
+				
+				var productQuantity = parseInt(product.get('quantity'));
+				var productPrice = parseInt(product.get('amount'));
+				
+				
+				$('#cartPrice').text(price-(productPrice*productQuantity));
+				
+				$('#cartImageItemsNumberDiv').text(items-productQuantity);
+				
+				if((items-productQuantity)==0)
+					$('#cartImageItemsDiv').hide();
+			});
 
-
+			// product photo gallery // Vertical-jQuery-Product-Photo-Gallery-PhotoGallery plugin
 			$(".preview a").on("click", function()
 			{
 				$(".selected").removeClass("selected");
@@ -215,24 +262,13 @@ function ajaxCall(urlAjax, flag)
 					$(".full").attr("title", picture.title);
 				}).fadeIn();
 			});// end on click
-	
 			$(".full").fancybox(
 			{
 			        helpers : {title: {type: 'inside'}},
 			        closeBtn : true,
 		    });
-		    
-//			paypal.minicart.render();
-//
-//			paypal.minicart.cart.on('add', function (idx, product, isExisting) 
-//			{
-//				if (!product.get('cartProductColor')) 
-//				{
-//					this.remove(idx);
-//					alert('Please select an option first!');
-//				}
-//			});
 					    
+			//product specifications tables toggle function
 		    jQuery('.menuBarProductDiv .tab-links a').on('click', function(e)
 			{
 				var currentAttrValue = jQuery(this).attr('href');
@@ -265,16 +301,11 @@ function ajaxCall(urlAjax, flag)
 						$('.menuBarProductDiv hr').css('margin-left', '80%');
 						break;
 				}
-				
 				e.preventDefault();
 			});
 		}
-		else if (flag == 6)
+		else if (flag == 6)//for logout div
 		{
-//			$('#loginText p').html("<a href='/loginDiv.php' class='colorFontLink'>Log in</a><span style='color:white'> - </span><a href='/div/registerDiv.php' class='colorFontLink'>Sign up</a>");
-//			$('#menu').addClass('visible');
-//			$('#loginImage').attr("src", "img/lock.png");
-			$('#loginFooter').text("logout");
 			ajaxCall('/logoutDiv.html', 1);
 		}
 			
@@ -285,6 +316,7 @@ function ajaxCall(urlAjax, flag)
 	
 }
 
+//called from flags 3-4 top toggle between login and register
 function toggleloginRegister(element)
 {
 	
@@ -301,6 +333,7 @@ function toggleloginRegister(element)
 	}, "slow");
 }
 
+//called to change url in  address bar
 function changePage(PageURI)
 {
 //	if (PageURI === null)
@@ -325,5 +358,53 @@ function changePage(PageURI)
 			PageURL : PageURI, 
 			rand : Math.random()
 		}, PageURI, PageURI);
+	}
+}
+
+//called from cart button
+function cartOnClick()
+{
+	var price = parseInt($('#cartPrice').text());
+	var items = parseInt($('#cartImageItemsNumberDiv').text());
+	var myForm = $("#productFormId")[0];
+	
+	var productColor = $('#productColorSelect').find(":selected").text();
+	
+	if (productColor === "")
+	{
+		sweetAlert("Oops...", "Please put a color!!!", "error");
+	}
+	else
+	{
+		var business,item_name,item_number,os0,amount,currency_code,color,shipping,shipping2,handling;
+		
+		business = myForm.business.value;
+		item_name = myForm.item_name.value;
+		item_number = myForm.item_number.value;
+		os0 = myForm.os0.value;
+		amount = myForm.amount.value;
+		currency_code = myForm.currency_code.value;
+        shipping = myForm.shipping.value;
+        shipping2 = myForm.shipping2.value;
+        handling = myForm.handling.value;
+			
+		paypal.minicart.cart.add(
+		{
+			"business" : business,
+			"item_name" : item_name,
+			"item_number" : item_number,
+			"on0" : "Color",
+			"os0" : productColor,
+			"amount" : amount,
+			"currency_code" : currency_code,        
+			"shipping" : shipping,
+        	"shipping2" : shipping2,
+        	"handling" : handling
+		});
+		
+		$('#cartImageItemsDiv').show();
+		$('#cartPrice').text(price+parseInt(amount));
+		items++;
+		$('#cartImageItemsNumberDiv').text(items);
 	}
 }

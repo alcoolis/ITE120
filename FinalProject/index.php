@@ -1,9 +1,5 @@
 <?php 
     session_start();
-
-    $productPrice = 19000;
-    $clientMail = "your_mail@domain.com";
-    
 ?>
     
 <!DOCTYPE html>
@@ -29,6 +25,7 @@
 <link rel="stylesheet" type="text/css" href="plugins/slick-master/slick-theme.css"/>
 <link rel="stylesheet" type="text/css" href="plugins/parallax-effect/style.css">
 <link rel="stylesheet" type="text/css" href="plugins/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" type="text/css" href="plugins/sweetalert-master/sweetalert.css">
 
 <link href='https://fonts.googleapis.com/css?family=Seaweed+Script' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
@@ -71,13 +68,13 @@
 		<!-- END upperNav-->
 
 		<div id="contactNav" class="italictext">
-			<a class="colorFontLinkNotUnderlined" href="#"><img src="img/phone.png" alt="phone" /> 2310-461512</a>
+			<a class="colorFontLinkNotUnderlined" href="javascript:changePage('/contactusDiv.html');"><img src="img/phone.png" alt="phone" /> 2310-461512</a>
 		</div>
 		<!-- END contactNav-->
 
 
 		<div id="cartDiv" class="clickable colorFontLinkNotUnderlined hoverClass">
-			<a href="javascript:ajaxCall('/cartDiv.php', 1);"></a>
+			<a href="javascript:paypal.minicart.view.toggle();"></a>
 
 			<div id="cartImageDiv">
 				<img id="cartImage" src="img/cart.png" />
@@ -89,7 +86,7 @@
 			<!-- END of cartImageDiv -->
 
 			<div id="cartText" class="colorFontLink">
-				<p>PRICE: $0</p>
+				<p>PRICE: $<span id="cartPrice">0</span></p>
 			</div>
 			<!-- END of cartText -->
 			
@@ -97,21 +94,15 @@
 		<!-- END of cartDiv -->
 
 
-
 		<div id="logIn" class="hoverClass">
 			<div id="loginImageDiv">
 				<img id="loginImage" src=
-				
-				
 		<?php
             if(isset($_SESSION['username']) && !empty($_SESSION['username']))
                 echo "img/user.png";
             else
                 echo "img/lock.png";
         ?>
-				
-				
-				
 				/>
 			</div>
 			<!-- END of loginImageDiv -->
@@ -126,21 +117,21 @@
                 $username=$_SESSION["username"]; 
                 
                 echo <<<EOF
-                    <a id="unSession" href="#" class="colorFontLink">$username</a><span style="color:white">-</span><a href="/logoutDiv.html" class="colorFontLink">Logout</a>
-                
+                    <a id="unSession" href="#" class="colorFontLink">$username</a>
+                    <span style="color:white">-</span>
+                    <a href="/logoutDiv.html" class="colorFontLink">Logout</a>
 EOF;
             }
             else
             {
                 echo <<<EOF
-                    <a id="unSession"  href="/loginDiv.php" class="colorFontLink">Log in</a><span style="color:white"> - </span><a href="/registerDiv.php" class="colorFontLink">Sign up</a>
-                
-                
+                    <a id="unSession"  href="/loginDiv.php" class="colorFontLink">Log in</a>
+                    <span style="color:white"> - </span>
+                    <a href="/registerDiv.php" class="colorFontLink">Sign up</a>
 EOF;
             }
 
         ?>
-        
         
         		</p>
 			</div>
@@ -174,61 +165,12 @@ EOF;
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 			<!-- ***CONTENU TO BE ADDED HERE WITH AJAX CALLS*** -->
-			
-			
-			
-			
-			
-			
 			
 			
 
 	</div>
 	<!-- END of container -->
-	
-		
-			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-        		<fieldset>
-        			<input type="hidden" name="cmd" value="_cart" />
-        			<input type="hidden" name="add" value="1" />
-        			<input type="hidden" name="business" value="V96EYD2M4YEV4" />
-        			<input type="hidden" name="item_name" value="malakia" />
-        			<p class="productFormLabels">
-                		<label>
-            				Price $120
-                			<input type="hidden" name="amount" value="120" />
-                			<input type="hidden" name="currency_code" value="USD" />
-            			</label>
-        			</p>
-        			<input type="hidden" name="return" value="http://localhost/minicartjs.com/?success" />
-        			<input type="hidden" name="cancel_return" value="http://localhost/minicartjs.com/?cancel" />
-        			<p class="productFormLabels">
-        				<label>
-        					Choose Color:
-        					<input type="hidden" name="on0" value="Color" />
-        					<select name="cartProductColor">
-        						<option value="Bi">Bi</option>
-        						<option value="Black">Black</option>
-        						<option value="Red">Red</option>
-        						<option value="Yellow">Yellow</option>
-        						<option value="Green">Green</option>
-        						<option value="Blue">Blue</option>
-        					</select>
-        				</label>
-        			</p>
-        			<input class="productFormSubmit" type="submit" value="Add to cart" />
-        		</fieldset>
-        	</form>
-    	
 
 	<div id="footer">
 
@@ -245,13 +187,13 @@ EOF;
 		<!-- END of downNav1 -->
 
 
-		<div id="downNav2" class="downNav colorFont italictext divLinks">
+		<div id="downNav2" class="downNav colorFont italictext">
 
 			<ul>
 				<li>MY ACCOUNT</li>
-				<li><a id="loginFooter" class="colorFontLink" href="/loginDiv.php">Login</a></li>
-				<li><a id="registerFooter"  class="colorFontLink" href="/registerDiv.php">Register</a></li>
-				<li><a class="colorFontLink" href="#">Cart</a></li>
+				<li class="divLinks"><a id="loginFooter" class="colorFontLink" href="/loginDiv.php">Login</a></li>
+				<li class="divLinks"><a id="registerFooter"  class="colorFontLink" href="/registerDiv.php">Register</a></li>
+				<li><a class="colorFontLink" href="javascript:paypal.minicart.view.toggle();">Cart</a></li>
 			</ul>
 		</div>
 		<!-- END of downNav2 -->
@@ -325,10 +267,14 @@ EOF;
 	<script src="plugins/fancybox/jquery.fancybox.js"></script>
 	
 	<!-- add shopping cart -->
-	<script src="plugins/minicart-master/minicart.js"></script>
+	<script src="plugins/minicart-master/minicart.min.js"></script>
 	
+	<!-- ajax calls and history problem -->
 	<script type="text/javascript">delete History</script>
 	<script src="plugins/browserstate-history/jquery.history.js"></script>
+	
+	<!-- add sweetalert dialogs plugin -->
+	<script src="plugins/sweetalert-master/sweetalert.min.js"></script>
 	
 	<!-- my modules -->
 	<script src="js/app.js"></script>
@@ -345,7 +291,6 @@ EOF;
 	 -->
 
 	<script type="text/javascript">
-		//initiating jQuery
 		
 		jQuery(function($)
 		{
@@ -369,17 +314,6 @@ EOF;
 			});
 		});
 
-		paypal.minicart.render();
-
-// 		paypal.minicart.cart.on('add', function (idx, product, isExisting) 
-// 		{
-// 			if (!product.get('cartProductColor')) 
-// 			{
-// 				this.remove(idx);
-// 				alert('Please select an option first!');
-// 			}
-// 		});
-
 	// Content update and back/forward button handler
 	History.Adapter.bind(window, 'statechange', function()
 	{
@@ -392,9 +326,6 @@ EOF;
 if(isset($_GET['q']))
 {
     $request=$_GET['q'];
-    
-//     if ($request=="logout")
-//        echo "alert('papala');";
     
     if ($request=="error")
        echo "changePage('/loginDiv.php?q=error');";

@@ -3,12 +3,7 @@ function init_ui()
 {
 	// create hidden search form inside search_form div (created via JQuery to avoid to see the div when tha page first loaded)
 	$("#search_form").html("<input id='search_term' type='text' value='' placeholder='text...' /><input id='search_button' type='submit' value='search' />").hide();
-	//create hidden red circle image inside shopping cart (created via JQuery to avoid to see the div when tha page first loaded)
-	$('#cartImageItemsDiv').html("<div id='cartImageItemsNumberDiv'>2</div>" +
-			"<!-- END of cartImageItemsNumberDiv -->" +
-			"<div id='cartImageItemsImageDiv'>" +
-				"<img id='itemsImage' src='img/cart_item.png' />" +
-			"</div><!-- END of cartImageItemsImageDiv -->").hide();
+
 }
 
 
@@ -62,12 +57,7 @@ $(function()
 		//1.
 		click : function(e)
 		{
-			//alert(e.isPropagationStopped());
-			//window.location = $(this).find("a").attr("href");
-
 			e.preventDefault();
-			e.stopPropagation();
-			//alert(e.isPropagationStopped());
 			
 			var urlPath = $(this).find("a").attr("href");
 			var title = $('div div p:first', this).text();

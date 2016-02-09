@@ -1,7 +1,100 @@
 <?php 
-$productPrice = 19000;
-$clientMail = "your_mail@domain.com";
+$amount = 0;
+$shipping = 10;
+$shipping2 = 20;
+$handling = 30;
+$item_number = 0;
+$image="";
 
+if (isset($_GET['q']))
+{
+    $item_name = $_GET['q'];
+
+switch ($item_name)
+    {
+        case "Yamaha R1":
+            $item_number = 564576846435;
+            $amount = 19000;
+            $image="3.jpg";
+            break;
+        case "Ducati Panigale R":
+            $item_number = 64456546563456;
+            $amount = 14300;
+            $image="1.jpg";
+            break;
+        case "Honda CBR-R":
+            $item_number = 5645635345345;
+            $amount = 15600;
+            $image="2.jpg";
+            break;
+        case "RS - M01":
+            $item_number = 563566345345;
+            $amount = 18900;
+            $image="4.jpg";
+            break;
+        case "Husaberg FE":
+            $item_number = 643453453453;
+            $amount = 8400;
+            $image="16.jpg";
+            break;
+        case "Ducati Streetfighter 848cc":
+            $item_number = 655645643543;
+            $amount = 14300;
+            $image="5.jpg";
+            break;
+        case "Kawasaki Z":
+            $item_number = 436435346534;
+            $amount = 12500;
+            $image="6.jpg";
+            break;
+        case "MV Agusta Rivale":
+            $item_number = 464365634534;
+            $amount = 11200;
+            $image="7.jpg";
+            break;
+        case "Ducati Streetfighter 600cc":
+            $item_number = 463453453453;
+            $amount = 11500;
+            $image="8.jpg";
+            break;
+        case "BMW F 650cc":
+            $item_number = 463463453463;
+            $amount = 11000;
+            $image="9.jpg";
+            break;
+        case "BMW F 800cc":
+            $item_number = 463453453454;
+            $amount = 15200;
+            $image="10.jpg";
+            break;
+        case "YAMAHA XT-X":
+            $item_number = 453547456566;
+            $amount = 9900;
+            $image="11.jpg";
+            break;
+        case "KTM - R":
+            $item_number = 634543546565;
+            $amount = 10100;
+            $image="12.jpg";
+            break;
+        case "Honda CRF - L":
+            $item_number = 465435655645;
+            $amount = 8000;
+            $image="13.jpg";
+            break;
+        case "KTM 300 EXC":
+            $item_number = 645645635334;
+            $amount = 9200;
+            $image="14.jpg";
+            break;
+        case "Husqvarna TC":
+            $item_number = 464564545645;
+            $amount = 7600;
+            $image="15.jpg";
+            break;
+    }
+            
+}
 
 ?>
 <div class="productDiv">
@@ -14,27 +107,22 @@ $clientMail = "your_mail@domain.com";
             <div class="pics clearfix">
             
 <?php
-
-if (isset($_GET['q']))
-{
-    $request = $_GET['q'];
-    
-    if ($request == "Yamaha_R1")
-        echo "<h1>My Baby $request</h1>";
-    else
-        echo "<h1>$request</h1>";
-}
+        if ($item_name == "Yamaha R1")
+            echo "<h1>My Baby $item_name</h1>";
+        else
+            echo "<h1>$item_name</h1>";
 ?>
+
                 <div class="thumbs">
-                    <div class="preview"> <a href="#" class="selected" data-full="../img/bikes/1.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="../img/bikes/1.jpg"/> </a> </div>
-                    <div class="preview"> <a href="#" data-full="../img/bikes/2.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="../img/bikes/2.jpg"/> </a> </div>
-                    <div class="preview"> <a href="#" data-full="../img/bikes/3.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="../img/bikes/3.jpg"/> </a> </div>
-                    <div class="preview"> <a href="#" data-full="../img/bikes/4.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="../img/bikes/4.jpg"/> </a> </div>
-                    <div class="preview"> <a href="#" data-full="../img/bikes/5.jpg" data-title="Spring 2013 | Luna + Hill"> <img src="../img/bikes/5.jpg"/> </a> </div>
+                    <div class="preview"> <a href="#" class="selected" data-full="../img/bikes/1.jpg" data-title="<?=$item_name?> photo 2"> <img src="../img/bikes/1.jpg"/> </a> </div>
+                    <div class="preview"> <a href="#" data-full="../img/bikes/2.jpg" data-title="<?=$item_name?> photo 3"> <img src="../img/bikes/2.jpg"/> </a> </div>
+                    <div class="preview"> <a href="#" data-full="../img/bikes/3.jpg" data-title="<?=$item_name?> photo 4"> <img src="../img/bikes/3.jpg"/> </a> </div>
+                    <div class="preview"> <a href="#" data-full="../img/bikes/4.jpg" data-title="<?=$item_name?> photo 5"> <img src="../img/bikes/4.jpg"/> </a> </div>
+                    <div class="preview"> <a href="#" data-full="../img/bikes/5.jpg" data-title="<?=$item_name?> photo 6"> <img src="../img/bikes/5.jpg"/> </a> </div>
                 </div>
-                <a href="../img/bikes/1.jpg" class="full" title="Spring 2013 | Luna + Hill"> 
+                <a href="../img/bikes/<?=$image?>" class="full" title="<?=$item_name?> photo 1"> 
                     <!-- first image is viewable to start --> 
-                	<img src="../img/bikes/3.jpg"> 
+                	<img src="../img/bikes/<?=$image?>"> 
                 </a> 
             </div>
     	</div>
@@ -53,27 +141,31 @@ if (isset($_GET['q']))
 	
 	<div id="containerProductDiv">
 
-			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<form id="productFormId" action="https://www.paypal.com/cgi-bin/webscr" method="post">
         		<fieldset>
         			<input type="hidden" name="cmd" value="_cart" />
         			<input type="hidden" name="add" value="1" />
         			<input type="hidden" name="business" value="V96EYD2M4YEV4" />
-        			<input type="hidden" name="item_name" value="malakia" />
+                    <input type="hidden" name="shipping" value="<?=$shipping?>">
+                    <input type="hidden" name="shipping2" value="<?=$shipping2?>">
+                    <input type="hidden" name="handling" value="<?=$handling?>">
+        			<input type="hidden" name="item_number" value="<?=$item_number?>">
+        			<input type="hidden" name="item_name" value="<?=$item_name?>" />
         			<p class="productFormLabels">
                 		<label>
-            				Price $120
-                			<input type="hidden" name="amount" value="120" />
+            				Price $<?=$amount?>
+                			<input type="hidden" name="amount" value="<?=$amount?>"/>
                 			<input type="hidden" name="currency_code" value="USD" />
             			</label>
         			</p>
-        			<input type="hidden" name="return" value="http://localhost/minicartjs.com/?success" />
-        			<input type="hidden" name="cancel_return" value="http://localhost/minicartjs.com/?cancel" />
+        			<input type="hidden" name="return" value="http://localhost/index.php?q=success" />
+        			<input type="hidden" name="cancel_return" value="http://localhost/index.php?q=cancel" />
         			<p class="productFormLabels">
         				<label>
         					Choose Color:
         					<input type="hidden" name="on0" value="Color" />
-        					<select name="cartProductColor">
-        						<option value="Bi">Bi</option>
+        					<select id="productColorSelect" name="os0">
+        						<option value=""></option>
         						<option value="Black">Black</option>
         						<option value="Red">Red</option>
         						<option value="Yellow">Yellow</option>
@@ -82,7 +174,7 @@ if (isset($_GET['q']))
         					</select>
         				</label>
         			</p>
-        			<input class="productFormSubmit" type="submit" value="Add to cart" />
+        			<input class="productFormSubmit"  value="Add to cart" onclick="cartOnClick()"/>
         		</fieldset>
         	</form>
 	

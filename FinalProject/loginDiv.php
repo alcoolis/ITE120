@@ -6,10 +6,7 @@ if(isset($_SESSION['username']))
     session_destroy();
     header("location:index.php?q=logout");
 }
-
-
 ?>
-
 
 <div class="loginDiv">
 
@@ -25,7 +22,7 @@ if (isset($_GET['q']))
     $request = $_GET['q'];
     
     if ($request == "error")
-        echo "<div class='loginError'>Invalid username or password!<div>";
+        echo "<div class='loginError'><p>Invalid username or password!</p><div>";
 }
 ?>
 		</label>
