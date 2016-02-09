@@ -106,6 +106,18 @@ function ajaxCall(urlAjax, flag)
 		}
 	}).done(function()
 	{
+
+		if($('#unSession').text()=="Log in")
+		{
+			$('#loginFooter').text("login").attr("href", "/loginDiv.php");
+		}
+		else
+		{
+			$('#loginFooter').text("logout").attr("href", "/logoutDiv.html");
+			$('#downNav2 li:nth-child(3)').html("<p class='colorFont'>Register</p>");
+		}
+		
+		
 		$('#container').css('min-height', '0');
 		
 		if (flag==1)
@@ -121,6 +133,7 @@ function ajaxCall(urlAjax, flag)
 //					alert('Please select an option first!');
 //				}
 //			});
+				
 		}
 		else if (flag == 2)
 		{
@@ -268,7 +281,7 @@ function ajaxCall(urlAjax, flag)
 //			$('#loginText p').html("<a href='/loginDiv.php' class='colorFontLink'>Log in</a><span style='color:white'> - </span><a href='/div/registerDiv.php' class='colorFontLink'>Sign up</a>");
 //			$('#menu').addClass('visible');
 //			$('#loginImage').attr("src", "img/lock.png");
-			$('#loginFooter').text("login");
+			$('#loginFooter').text("logout");
 			ajaxCall('/logoutDiv.html', 1);
 		}
 			

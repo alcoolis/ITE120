@@ -1,14 +1,31 @@
 .aboutusDiv {
 	margin-top: 169px;
+	background-color:#CCC;
+	padding-top: 50px;
 
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.main{
+	
+	background-color:#CCC;
+}
 
-.aboutusDiv p{
-	margin: 100px;
-	width: 50%;
-	margin: 0 AUTO;
-	padding-top: 50px;
-	color:green;
+.office{
+	float:left;
+    
+	
+}
+.contactus{
+	
+	
+}
+.reception{
+	float:left;
+	
+}
+.aboutusDiv h2{
+	
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:24px;
 }

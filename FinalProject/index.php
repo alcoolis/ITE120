@@ -45,7 +45,7 @@
 	<div id="navBar">
 
 		<div id="logo">
-			<a href="#"><img src="img/logo.png" alt="logo" /></a>
+			<a href="javascript:changePage('/homeDiv.html');"><img src="img/logo.png" alt="logo" /></a>
 		</div>
 		<!-- END of logo -->
 
@@ -126,14 +126,14 @@
                 $username=$_SESSION["username"]; 
                 
                 echo <<<EOF
-                    <a href="#" class="colorFontLink">$username</a><span style="color:white">-</span><a href="/logoutDiv.html" class="colorFontLink">Logout</a>
+                    <a id="unSession" href="#" class="colorFontLink">$username</a><span style="color:white">-</span><a href="/logoutDiv.html" class="colorFontLink">Logout</a>
                 
 EOF;
             }
             else
             {
                 echo <<<EOF
-                    <a href="/loginDiv.php" class="colorFontLink">Log in</a><span style="color:white"> - </span><a href="/registerDiv.php" class="colorFontLink">Sign up</a>
+                    <a id="unSession"  href="/loginDiv.php" class="colorFontLink">Log in</a><span style="color:white"> - </span><a href="/registerDiv.php" class="colorFontLink">Sign up</a>
                 
                 
 EOF;
@@ -237,20 +237,20 @@ EOF;
 			<ul>
 				<li>INFORMATION</li>
 				<li><a class="colorFontLink" id="homeDiv" href="#homeDiv">Home</a></li>
-				<li><a class="colorFontLink" id="contactusDiv" href="#contactusDiv">Contact Us</a></li>
-				<li><a class="colorFontLink" id="aboutusDiv" href="#aboutusDiv">About Us</a></li>
-				<li><a class="colorFontLink" id="sitemapDiv" href="#sitemapDiv">Sitemap</a></li>
+				<li><a class="colorFontLink" id="contactusDiv" href="/contactusDiv.html">Contact Us</a></li>
+				<li><a class="colorFontLink" id="aboutusDiv" href="/aboutusDiv.html">About Us</a></li>
+				<li><a class="colorFontLink" id="sitemapDiv" href="/sitemapDiv.html">Sitemap</a></li>
 			</ul>
 		</div>
 		<!-- END of downNav1 -->
 
 
-		<div id="downNav2" class="downNav colorFont italictext">
+		<div id="downNav2" class="downNav colorFont italictext divLinks">
 
 			<ul>
 				<li>MY ACCOUNT</li>
 				<li><a id="loginFooter" class="colorFontLink" href="/loginDiv.php">Login</a></li>
-				<li><a class="colorFontLink" href="/registerDiv.php">Register</a></li>
+				<li><a id="registerFooter"  class="colorFontLink" href="/registerDiv.php">Register</a></li>
 				<li><a class="colorFontLink" href="#">Cart</a></li>
 			</ul>
 		</div>
@@ -392,6 +392,9 @@ EOF;
 if(isset($_GET['q']))
 {
     $request=$_GET['q'];
+    
+//     if ($request=="logout")
+//        echo "alert('papala');";
     
     if ($request=="error")
        echo "changePage('/loginDiv.php?q=error');";
