@@ -83,13 +83,6 @@ function doClick(urlFromHref)
 	}
 }
 
-function ok()
-{
-	$('#container').load(homeDiv.html);
-	//$('#menu').fadeIn(500);
-	alert("ok");
-}
-
 //calling for loading div's inside the container div of index.html
 function ajaxCall(urlAjax, flag)
 {
