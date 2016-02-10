@@ -8,6 +8,8 @@
 <meta charset="ISO-8859-1">
 <title>Final Project</title>
 
+<link rel="shortcut icon" type="image/png" href="img/logo.png"/>
+
 <link rel="stylesheet" href="css/reset.css" type="text/css" />
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="stylesheet" href="css/home.css" type="text/css" />

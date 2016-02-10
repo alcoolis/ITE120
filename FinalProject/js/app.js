@@ -1,4 +1,4 @@
-var loginFlag = -1;
+var loginFlag = -1; //flag for knowing if we are in register or login mode for loginDiv
 
 function init()
 {
@@ -12,7 +12,7 @@ function init()
 	//initialize minicart
 	paypal.minicart.render();
 	
-	//load items and price if session is open
+	//load items and prices if session is open and minicart has products inside it
 	var total=parseInt(paypal.minicart.cart.total());
 	var totalItems=0;
 	
