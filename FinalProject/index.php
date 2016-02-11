@@ -57,8 +57,6 @@
 				<li>|</li>
 				<li><a class="colorFontLink" id="aboutusDiv" href="/aboutusDiv.html">About Us</a></li>
 				<li>|</li>
-				<li><a class="colorFontLink" id="sitemapDiv"  href="/sitemapDiv.html">Sitemap</a></li>
-				<li>|</li>
 				<li><a class="colorFontLink" id="search_link" href="#">Search</a></li>
 			</ul>
 			
@@ -183,7 +181,6 @@ EOF;
 				<li><a class="colorFontLink" id="homeDiv" href="#homeDiv">Home</a></li>
 				<li><a class="colorFontLink" id="contactusDiv" href="/contactusDiv.html">Contact Us</a></li>
 				<li><a class="colorFontLink" id="aboutusDiv" href="/aboutusDiv.html">About Us</a></li>
-				<li><a class="colorFontLink" id="sitemapDiv" href="/sitemapDiv.html">Sitemap</a></li>
 			</ul>
 		</div>
 		<!-- END of downNav1 -->
