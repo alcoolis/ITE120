@@ -43,8 +43,8 @@
 
 	<div id="navBar">
 
-		<div id="logo">
-			<a href="javascript:changePage('/homeDiv.html');"><img src="img/logo.png" alt="logo" /></a>
+		<div id="logo" class="divLinks">
+			<a href="/homeDiv.html"><img src="img/logo.png" alt="logo" /></a>
 		</div>
 		<!-- END of logo -->
 
@@ -67,8 +67,8 @@
 		</div>
 		<!-- END upperNav-->
 
-		<div id="contactNav" class="italictext">
-			<a class="colorFontLinkNotUnderlined" href="javascript:changePage('/contactusDiv.html');"><img src="img/phone.png" alt="phone" /> 2310-461512</a>
+		<div id="contactNav" class="italictext divLinks">
+			<a class="colorFontLinkNotUnderlined" href="/contactusDiv.html"><img src="img/phone.png" alt="phone" /> 2310-461512</a>
 		</div>
 		<!-- END contactNav-->
 
