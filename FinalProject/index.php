@@ -8,8 +8,6 @@
 <meta charset="ISO-8859-1">
 <title>Final Project</title>
 
-<link rel="shortcut icon" type="image/png" href="img/logo.png"/>
-
 <link rel="stylesheet" href="css/reset.css" type="text/css" />
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="stylesheet" href="css/home.css" type="text/css" />
@@ -29,13 +27,13 @@
 <link rel="stylesheet" type="text/css" href="plugins/fancybox/jquery.fancybox.css">
 <link rel="stylesheet" type="text/css" href="plugins/sweetalert-master/sweetalert.css">
 
-<link href='https://fonts.googleapis.com/css?family=Seaweed+Script' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-<link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet" type="text/css">
+<!-- <link href='https://fonts.googleapis.com/css?family=Seaweed+Script' rel='stylesheet' type='text/css'> -->
+<!-- <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'> -->
+<!-- <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'> -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet" type="text/css"> -->
 
-<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
-<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+<!-- <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'> -->
+<!-- <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'> -->
 
 
 </head>
@@ -43,19 +41,21 @@
 
 	<div id="navBar">
 
-		<div id="logo" class="divLinks">
-			<a href="/homeDiv.html"><img src="img/logo.png" alt="logo" /></a>
+		<div id="logo">
+			<a href="javascript:changePage('/homeDiv.php');"><img src="img/logo.png" alt="logo" /></a>
 		</div>
 		<!-- END of logo -->
 
 		<div id="upperNav" class="divLinks colorFont">
 
 			<ul>
-				<li><a class="colorFontLink" id="homeDiv" href="/homeDiv.html">Home</a></li>
+				<li><a class="colorFontLink" id="homeDiv" href="/homeDiv.php">Home</a></li>
 				<li>|</li>
 				<li><a class="colorFontLink" id="contactusDiv" href="/contactusDiv.html">Contact Us</a></li>
 				<li>|</li>
 				<li><a class="colorFontLink" id="aboutusDiv" href="/aboutusDiv.html">About Us</a></li>
+				<li>|</li>
+				<li><a class="colorFontLink" id="sitemapDiv"  href="/sitemapDiv.html">Sitemap</a></li>
 				<li>|</li>
 				<li><a class="colorFontLink" id="search_link" href="#">Search</a></li>
 			</ul>
@@ -67,8 +67,8 @@
 		</div>
 		<!-- END upperNav-->
 
-		<div id="contactNav" class="italictext divLinks">
-			<a class="colorFontLinkNotUnderlined" href="/contactusDiv.html"><img src="img/phone.png" alt="phone" /> 2310-461512</a>
+		<div id="contactNav" class="italictext">
+			<a class="colorFontLinkNotUnderlined" href="javascript:changePage('/contactusDiv.html');"><img src="img/phone.png" alt="phone" /> 2310-461512</a>
 		</div>
 		<!-- END contactNav-->
 
@@ -181,6 +181,7 @@ EOF;
 				<li><a class="colorFontLink" id="homeDiv" href="#homeDiv">Home</a></li>
 				<li><a class="colorFontLink" id="contactusDiv" href="/contactusDiv.html">Contact Us</a></li>
 				<li><a class="colorFontLink" id="aboutusDiv" href="/aboutusDiv.html">About Us</a></li>
+				<li><a class="colorFontLink" id="sitemapDiv" href="/sitemapDiv.html">Sitemap</a></li>
 			</ul>
 		</div>
 		<!-- END of downNav1 -->
@@ -330,7 +331,7 @@ if(isset($_GET['q']))
        echo "changePage('/loginDiv.php?q=error');";
 }
 else 
-    echo   "changePage('/homeDiv.html');";
+    echo   "changePage('/homeDiv.php');";
 
     
 ?>

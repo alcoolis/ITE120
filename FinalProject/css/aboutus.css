@@ -1,57 +1,3 @@
-@charset "utf-8";
- CSS Document 
-
-.aboutusDiv #container{
-
-}
-
-#navigation ul {
-	text-align: center;	
-}	
-#navigation li {
-	display: inline;
-	padding: 5px;
-	border: white;
-	border-width: 1px;
-	background-color: black;
-	color: white;
-	list-style: none
-	}
-#navigation a {
-	text-indent:inherit;
-	text-decoration:inherit;
-    background-color:#FF0000;
-    color:white;
-    text-align:center;
-    padding:5px;
-}
-	
-#topbanner {
-	height: auto;
-	text-align: center;
-	}
-
-#col1 li, #col2 li, #col3 li {
-	list-style: none;
-	}
-	
-#col1, #col2, #col3 {
-	float: left;
-	margin: 0px 100px;
-	padding-left: 40px;
-	}
-soc_icon { 
-    float:center;
-    display:inline;
-    padding-top:10px;
-	
-	}
-fav{ 
-    font-size: 500%;
-    float:left;
-	align:left;}
-	
-
 .aboutusDiv {
 	margin-top: 169px;
 
@@ -60,12 +6,9 @@ fav{
 }
 
 .aboutusDiv p{
-	/*
 	margin: 100px;
 	width: 50%;
-	*/
 	margin: 0 AUTO;
 	padding-top: 50px;
-    width: 80%;
-    padding: 10px;
+	color:green;
 }

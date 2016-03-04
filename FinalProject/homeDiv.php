@@ -1,123 +1,79 @@
 
 <div class="homeDiv colorFont">
-
-
 	<div>
 		<div class="carousell">
-			<div>
-				<img src="../../img/categories/supersport.jpg" alt="" />
-				<h1><a class="colorFontLinkNotUnderlined" href="#">Built Beyond Belief</a></h1>
-				<p>Incredible power, spotless handling, brakes that will make
-					your nose bleed, no compromises. That's what today's best sport
-					motorcycles are all about. Where handling and acceleration are the
-					key ingredients to two-wheeled fun, sport motorcycles are the best.
-					This class is about speed, thrills, and excitement on the road as
-					well as the track.
-				</p>
-			</div>
-			<div>
-				<img src="../../img/categories/naked.jpg" alt="" />
-				<h1><a class="colorFontLinkNotUnderlined" href="#">Instinct Has A Sign</a></h1>
-				<p>Also known as "naked" bikes, today's standard-class
-					motorcycles are closest to the traditional form: wheels, tank,
-					seat, engine. No superfluous equipment. Just the basics. They offer
-					the closest thing to an old-school motorcycle experience. Wind in
-					the hair, bugs in the teeth. You know, stuff your grandfather went
-					on and on about.
-				</p>
-			</div>
-			<div>
-				<img src="../../img/categories/onoff.jpg" alt="" />
-				<h1><a class="colorFontLinkNotUnderlined" href="#">Change Your View</a></h1>
-				<p>Today's fastest-growing segment serves up a whole new
-					category of multi-dimensional motorcycles capable of long-distance
-					travel with a modicum of off-road performance. ADV motorcycles have
-					evolved into incredibly capable, technologically advanced machines
-					that are as much fun on your daily commutes as your month-long
-					vacation.
-				</p>
-			</div>
-			<div>
-				<img src="../../img/categories/offroad.jpg" alt="" />
-				<h1><a class="colorFontLinkNotUnderlined" href="#">Call Of The Wild</a></h1>
-				<p>These lightweight machines range from bare-bones dirtbikes
-					designed for off-road driving, a rough surface often created
-					naturally, such as sand, gravel, a river, mud or snow.
-				</p>
-			</div>
+		<?php
+		
+		$con= new PDO('mysql:host=localhost;dbname=miltiadi_ite_db', "miltiadi_user", "user");
+		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$query = file_get_contents("sql/carousel.sql");
+		$result = $con->query($query);
+		$result->setFetchMode(PDO::FETCH_ASSOC);
+		
+		foreach($result as $row)
+		{
+		    $photo=$row["photo"];
+		    $photoID=$row["carousel_photo_ID"];
+		    $title=$row["title"];
+		    $mainText=$row["main_text"];
+		    
+		    print <<<HERE
+\n		      <div>
+		          <img src="$photo" alt="photo moto $photoID">
+		          <h1><a class="colorFontLinkNotUnderlined" href="#">$title</a></h1>
+		          <p>$mainText</p>
+		      </div>
+HERE;
+		} // end while
+		
+		?>
+			
 		</div>
-
 	</div>
 
 	<div id="contentFavorites" class="content">
 
 		<div id="favoritesTitle" class="titles">FAVORITES</div>
 		<!-- END of favoritesTitle -->
-
-		<div id="favorites1" class="category favorites">
-			<div>
-				<div class="categoryText1">
-					<p>Yamaha R1</p>
-				</div>
-				<div class="categoryText2">
-					<p>
-						Engine Size: 1000 cc<br> Color: Black
-					</p>
-				</div>
-			</div>
-			<div>
-				<a href="/productDiv.php?q=Yamaha%20R1"></a><img src="../../img/bikes/3.jpg" alt="" />
-			</div>
-		</div>
-		<!-- END of favorites1 -->
-		<div id="favorites2" class="category favorites">
-			<div>
-				<div class="categoryText1">
-					<p>Kawasaki Z</p>
-				</div>
-				<div class="categoryText2">
-					<p>
-						Engine Size: 750 cc<br> Color: Black
-					</p>
-				</div>
-			</div>
-			<div>
-				<a href="/productDiv.php?q=Kawasaki%20Z"></a> <img src="../../img/bikes/6.jpg" alt="" />
-			</div>
-		</div>
-		<!-- END of favorites2 -->
-		<div id="favorites3" class="category favorites">
-			<div>
-				<div class="categoryText1">
-					<p>YAMAHA XT-X</p>
-				</div>
-				<div class="categoryText2">
-					<p>
-						Engine Size: 600 cc<br> Color: Black
-					</p>
-				</div>
-			</div>
-			<div>
-				<a href="/productDiv.php?q=YAMAHA%20XT-X"></a> <img src="../../img/bikes/11.jpg" alt="" />
-			</div>
-		</div>
-		<!-- END of favorites3 -->
-		<div id="favorites4" class="category favorites">
-			<div>
-				<div class="categoryText1">
-					<p>Husaberg FE</p>
-				</div>
-				<div class="categoryText2">
-					<p>
-						Engine Size: 350 cc<br> Color: Blue - White - YEllow
-					</p>
-				</div>
-			</div>
-			<div>
-				<a href="/productDiv.php?q=Husaberg%20FE"></a> <img src="../../img/bikes/16.jpg" alt="" />
-			</div>
-		</div>
-		<!-- END of favorites4 -->
+		<?php 
+		$index=1;
+		
+		$con= new PDO('mysql:host=localhost;dbname=miltiadi_ite_db', "miltiadi_user", "user");
+		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$query = file_get_contents("sql/favorite.sql");
+		$result = $con->query($query);
+		$result->setFetchMode(PDO::FETCH_ASSOC);
+		
+		foreach($result as $row)
+		{
+		    $name=$row["name"];
+		    $product_number=$row["product_number"];		
+		    $photo=$row["photo"];
+		    $engine=$row["engine"];
+		    $color=$row["color"];
+		    
+		    print <<<HERE
+\n		  	  <div id="favorites$index" class="category favorites">
+        		  <div>
+            		  <div class="categoryText1">
+            		      <p>$name</p>
+            		  </div>
+            		  <div class="categoryText2">
+            		      <p>
+            		          Engine Size: $engine<br> Color: $color
+            		      </p>
+            		  </div>
+            	  </div>
+            	  <div>
+            		  <a href="/productDiv.php?q=$product_number"></a><img src="$photo" alt="" />
+        		  </div>
+        	  </div>
+        	  <!-- END of favorites$index -->    
+HERE;
+		    $index++;
+		} // end while
+		
+		?>
 	</div>
 	<!-- END of contentFavorites -->
 

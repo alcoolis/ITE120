@@ -1,4 +1,4 @@
-var loginFlag = -1; //flag for knowing if we are in register or login mode for loginDiv
+var loginFlag = -1;
 
 function init()
 {
@@ -12,7 +12,7 @@ function init()
 	//initialize minicart
 	paypal.minicart.render();
 	
-	//load items and prices if session is open and minicart has products inside it
+	//load items and price if session is open
 	var total=parseInt(paypal.minicart.cart.total());
 	var totalItems=0;
 	
@@ -104,7 +104,7 @@ function doClick(urlFromHref)
 	ajaxCall(urlFromHref.url, flag);
 	
 	//hide-show sticky menu based on divs called
-	if (window.location.pathname === "/homeDiv.html" || window.location.pathname === "/logout.html" )
+	if (window.location.pathname === "/homeDiv.php" || window.location.pathname === "/logout.html" )
 	{
 		$('#menu').fadeIn(500);
 	}

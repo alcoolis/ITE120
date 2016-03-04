@@ -8,87 +8,87 @@ $image="";
 
 if (isset($_GET['q']))
 {
-    $item_name = $_GET['q'];
+    $item_number = $_GET['q'];
 
-switch ($item_name)
+switch ($item_number)
     {
-        case "Yamaha R1":
-            $item_number = 564576846435;
+        case 564576846435:
+            $item_name = "Yamaha R1";
             $amount = 19000;
             $image="3.jpg";
             break;
-        case "Ducati Panigale R":
-            $item_number = 64456546563456;
+        case 64456546563456:
+            $item_name = "Ducati Panigale R";
             $amount = 14300;
             $image="1.jpg";
             break;
-        case "Honda CBR-R":
-            $item_number = 5645635345345;
+        case 5645635345345:
+            $item_name = "Honda CBR-R";
             $amount = 15600;
             $image="2.jpg";
             break;
-        case "RS - M01":
-            $item_number = 563566345345;
+        case 563566345345:
+            $item_name = "RS - M01";
             $amount = 18900;
             $image="4.jpg";
             break;
-        case "Husaberg FE":
-            $item_number = 643453453453;
+        case 643453453453:
+            $item_name = "Husaberg FE";
             $amount = 8400;
             $image="16.jpg";
             break;
-        case "Ducati Streetfighter 848cc":
-            $item_number = 655645643543;
+        case 655645643543:
+            $item_name = "Ducati Streetfighter 848cc";
             $amount = 14300;
             $image="5.jpg";
             break;
-        case "Kawasaki Z":
-            $item_number = 436435346534;
+        case 436435346534:
+            $item_name = "Kawasaki Z";
             $amount = 12500;
             $image="6.jpg";
             break;
-        case "MV Agusta Rivale":
-            $item_number = 464365634534;
+        case 464365634534:
+            $item_name = "MV Agusta Rivale";
             $amount = 11200;
             $image="7.jpg";
             break;
-        case "Ducati Streetfighter 600cc":
-            $item_number = 463453453453;
+        case 463453453453:
+            $item_name = "Ducati Streetfighter 600cc";
             $amount = 11500;
             $image="8.jpg";
             break;
-        case "BMW F 650cc":
-            $item_number = 463463453463;
+        case 463463453463:
+            $item_name = "BMW F 650cc";
             $amount = 11000;
             $image="9.jpg";
             break;
-        case "BMW F 800cc":
-            $item_number = 463453453454;
+        case 463453453454:
+            $item_name = "BMW F 800cc";
             $amount = 15200;
             $image="10.jpg";
             break;
-        case "YAMAHA XT-X":
-            $item_number = 453547456566;
+        case 453547456566:
+            $item_name = "YAMAHA XT-X";
             $amount = 9900;
             $image="11.jpg";
             break;
-        case "KTM - R":
-            $item_number = 634543546565;
+        case 634543546565:
+            $item_name = "KTM - R";
             $amount = 10100;
             $image="12.jpg";
             break;
-        case "Honda CRF - L":
-            $item_number = 465435655645;
+        case 465435655645:
+            $item_name = "Honda CRF - L";
             $amount = 8000;
             $image="13.jpg";
             break;
-        case "KTM 300 EXC":
-            $item_number = 645645635334;
+        case 645645635334:
+            $item_name = "KTM 300 EXC";
             $amount = 9200;
             $image="14.jpg";
             break;
-        case "Husqvarna TC":
-            $item_number = 464564545645;
+        case 464564545645:
+            $item_name = "Husqvarna TC";
             $amount = 7600;
             $image="15.jpg";
             break;
