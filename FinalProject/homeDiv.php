@@ -1,14 +1,9 @@
-
 <div class="homeDiv colorFont">
 	<div>
 		<div class="carousell">
 		<?php
 		
-		$con= new PDO('mysql:host=localhost;dbname=miltiadi_ite_db', "miltiadi_user", "user");
-		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$query = file_get_contents("sql/carousel.sql");
-		$result = $con->query($query);
-		$result->setFetchMode(PDO::FETCH_ASSOC);
+		$result=connectToDataBase("sql/carousel.sql");
 		
 		foreach($result as $row)
 		{
@@ -38,11 +33,7 @@ HERE;
 		<?php 
 		$index=1;
 		
-		$con= new PDO('mysql:host=localhost;dbname=miltiadi_ite_db', "miltiadi_user", "user");
-		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$query = file_get_contents("sql/favorite.sql");
-		$result = $con->query($query);
-		$result->setFetchMode(PDO::FETCH_ASSOC);
+		$result=connectToDataBase("sql/favorite.sql");
 		
 		foreach($result as $row)
 		{
@@ -518,5 +509,15 @@ HERE;
 
 </div>
 <!-- END of homeDiv -->
-
-
+<?php 
+function connectToDataBase($file)
+{
+    $con= new PDO('mysql:host=localhost;dbname=miltiadi_ite_db', "miltiadi_user", "user");
+    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $query = file_get_contents($file);
+    $result = $con->query($query);
+    $result->setFetchMode(PDO::FETCH_ASSOC);
+    
+    return $result;
+}
+?>
