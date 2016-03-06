@@ -1,15 +1,12 @@
-CREATE VIEW favorites AS
-SELECT
-motos.name AS 'name',
-motos.product_number AS 'product_number',
-product_images.photo AS 'photo',
-engine.Displacement AS 'engine',
-colors.color AS 'color'
-FROM motos, product_images, engine, colors
-
-WHERE
-product_images.moto_ID = motos.moto_ID
-AND
-engine.engine_ID = motos.engineID
-AND
-product_images.color_ID = colors.color_ID;
+CREATE VIEW supersport AS 
+SELECT 
+m.name AS 'name',
+m.product_number AS 'product_number',
+e.Displacement AS 'engine',
+p.photo AS 'photo',
+c.color AS 'color'
+FROM motos m
+INNER JOIN engine e ON m.engine_ID=e.engine_ID
+INNER JOIN product_images p ON p.moto_ID=m.moto_ID
+INNER JOIN colors c ON p.moto_ID=m.moto_ID AND c.color_ID=p.color_ID
+WHERE m.type='Supersport';
