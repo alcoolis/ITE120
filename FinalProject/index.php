@@ -27,13 +27,13 @@
 <link rel="stylesheet" type="text/css" href="plugins/fancybox/jquery.fancybox.css">
 <link rel="stylesheet" type="text/css" href="plugins/sweetalert-master/sweetalert.css">
 
-<!-- <link href='https://fonts.googleapis.com/css?family=Seaweed+Script' rel='stylesheet' type='text/css'> -->
-<!-- <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'> -->
-<!-- <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'> -->
-<!-- <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet" type="text/css"> -->
+<link href='https://fonts.googleapis.com/css?family=Seaweed+Script' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet" type="text/css">
 
-<!-- <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'> -->
-<!-- <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'> -->
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
 
 </head>
