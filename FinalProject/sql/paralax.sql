@@ -1,0 +1,1 @@
+SELECT main_text FROM paralax ;
