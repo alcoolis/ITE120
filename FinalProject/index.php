@@ -8,17 +8,12 @@
 <meta charset="ISO-8859-1">
 <title>Final Project</title>
 
-<link rel="stylesheet" href="css/reset.css" type="text/css" />
-<link rel="stylesheet" href="css/style.css" type="text/css" />
-<link rel="stylesheet" href="css/home.css" type="text/css" />
-<link rel="stylesheet" href="css/login.css" type="text/css" />
-<link rel="stylesheet" href="css/logout.css" type="text/css" />
-<link rel="stylesheet" href="css/cart.css" type="text/css" />
-<link rel="stylesheet" href="css/aboutus.css" type="text/css" />
-<link rel="stylesheet" href="css/contactus.css" type="text/css" />
-<link rel="stylesheet" href="css/sitemap.css" type="text/css" />
-<link rel="stylesheet" href="css/product.css" type="text/css" />
-<link rel="stylesheet" href="css/search.css" type="text/css" />
+<link href="/cssPreprocessors/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link href="/cssPreprocessors/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+<!--[if IE]>
+    <link href="/cssPreprocessors/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<![endif]-->
+
 
 <link rel="stylesheet" type="text/css" href="plugins/scroll-effects/animate.css"/>
 <link rel="stylesheet" type="text/css" href="plugins/slick-master/slick.css"/>
